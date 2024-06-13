@@ -1,0 +1,6 @@
+@BasicStandardsForRoundsAndInspectionsAPI_HostAddress = http://localhost:5211
+
+GET {{BasicStandardsForRoundsAndInspectionsAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
