@@ -12,7 +12,7 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Models
 
         public List<Result> Results { get; set; }= new List<Result>();
         [ForeignKey("MainStandardId")]
-        public int MainStandardId { get; set; }
+        public int? MainStandardId { get; set; }
         public MainStandard? MainStandard { get; set; }
         public List<SubStandardResult>? SubStandardResults { get; set; } 
 

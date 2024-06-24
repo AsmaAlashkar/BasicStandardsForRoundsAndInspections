@@ -12,7 +12,7 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Domain.Interfaces
     {
         SubStandard CreateSubStandard(CreateSubStandardDTO createSubStandardDTO);
         IEnumerable<SubStandard> GetAllSubStandards();
-        IEnumerable<SubStandard> GetSubStandardsByMainStandardId(int mainStandardId);
+        IEnumerable<IndexSubStandardDTO> GetSubStandardsByMainStandardId(int mainStandardId);
         IndexSubStandardDTO GetSubStandardById(int id);
         SubStandard EditSubStandardById(int id, EditSubStandardDTO editSubStandardDTO);
         int DeleteSubStandardById(int id);

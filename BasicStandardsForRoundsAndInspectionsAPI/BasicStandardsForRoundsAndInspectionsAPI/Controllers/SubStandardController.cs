@@ -24,13 +24,11 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Controllers
                 return BadRequest(ModelState);
             return Ok(allSubStandards);
         }
-        [HttpGet("GetSubStandardsByMainStandardId")]
-        public IActionResult GetSubStandardsByMainStandardId(int mainStandardId)
+        [HttpGet("GetSubStandardsByMainStandardId/{mainStandardId}")]
+        public IEnumerable<IndexSubStandardDTO> GetSubStandardsByMainStandardId(int mainStandardId)
         {
             var allSubStandardsByMainStandardId = _subStandardRepository.GetSubStandardsByMainStandardId(mainStandardId);
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
-            return Ok(allSubStandardsByMainStandardId);
+            return allSubStandardsByMainStandardId;
         }
         [HttpGet("GetSubStandardById")]
         public IActionResult GetSubStandardById(int id)
@@ -52,7 +50,7 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Controllers
             var editedSubStandard =_subStandardRepository.EditSubStandardById(id, editSubStandardDTO);
             return Ok(editedSubStandard);
         }
-        [HttpDelete("DeleteSubStandardById")]
+        [HttpDelete("DeleteSubStandardById/{id}")]
         public IActionResult DeleteSubStandardById(int id)
         {
             var deletedSubStandard = _subStandardRepository.DeleteSubStandardById(id);

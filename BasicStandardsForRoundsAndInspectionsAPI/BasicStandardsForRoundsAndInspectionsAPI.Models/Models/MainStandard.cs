@@ -12,6 +12,6 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Models
 
         [MaxLength(100)]
         public string? TitleAr { get; set; }
-        public List<SubStandard> SubStandards { get; set; } = new List<SubStandard>();
+        public List<SubStandard>? SubStandards { get; set; }
     }
 }

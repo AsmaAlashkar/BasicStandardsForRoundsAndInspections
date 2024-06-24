@@ -56,9 +56,13 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Domain.Repository
             return _context.SubStandards.OrderBy(s=>s.Id);
         }
 
-        public IEnumerable<SubStandard> GetSubStandardsByMainStandardId(int mainStandardId)
+        public IEnumerable<IndexSubStandardDTO> GetSubStandardsByMainStandardId(int mainStandardId)
         {
-            return _context.SubStandards.Where(s=>s.MainStandardId == mainStandardId).ToList();   
+            return _context.SubStandards.Where(s=>s.MainStandardId == mainStandardId).ToList().Select(item=> new IndexSubStandardDTO
+            {
+                Description= item.Description,
+                MainStandardId = item.MainStandardId
+            });   
         }
 
         public SubStandard EditSubStandardById(int id, EditSubStandardDTO editSubStandardDTO)
