@@ -78,7 +78,7 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Domain.Repository
             return null;
         }
 
-        public int DeleteSubStandardById(int id)
+        public void DeleteSubStandardById(int id)
         {
             var subStandard = _context.SubStandards.Find(id);
             if (subStandard != null)
@@ -86,7 +86,7 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Domain.Repository
                 _context.Remove(subStandard);
                 _context.SaveChanges();
             }
-            return id;
+
         }
     }
 }

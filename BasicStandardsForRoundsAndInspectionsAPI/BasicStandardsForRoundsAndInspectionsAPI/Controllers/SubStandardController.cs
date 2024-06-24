@@ -53,8 +53,8 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Controllers
         [HttpDelete("DeleteSubStandardById/{id}")]
         public IActionResult DeleteSubStandardById(int id)
         {
-            var deletedSubStandard = _subStandardRepository.DeleteSubStandardById(id);
-            return Ok($"deleted {deletedSubStandard}");
+            _subStandardRepository.DeleteSubStandardById(id);
+            return Ok($"deleted");
         }
     }
 }
