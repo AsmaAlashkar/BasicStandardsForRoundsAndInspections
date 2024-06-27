@@ -61,15 +61,22 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Domain.Repository
             return newMainStandard;
         }
 
-        public int DeleteById(int id)
+        public bool DeleteById(int id)
         {
             var mainStandard = _context.MainStandards.Find(id);
-            if (mainStandard != null)
+
+            if (mainStandard != null && !HasSubStandards(id)) 
             {
-                _context.Remove(mainStandard);
-                _context.SaveChanges();
+                    _context.Remove(mainStandard);
+                    _context.SaveChanges();
+                    return true;
             }  
-            return id;
+            return false;
         }
+        public bool HasSubStandards(int id)
+        {
+            return _context.SubStandards.Any(s=>s.MainStandardId == id);
+        }
+       
     }
 }

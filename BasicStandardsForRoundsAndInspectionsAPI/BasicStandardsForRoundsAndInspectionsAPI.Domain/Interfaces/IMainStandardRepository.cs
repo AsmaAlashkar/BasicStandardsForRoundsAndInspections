@@ -14,6 +14,7 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Domain.Interfaces
         IndexMainStandardDTO GetById(int id);
         MainStandard EditById(int id, EditMainStandardDTO editedMainStandardDTO);
         MainStandard CreateMainStandard (CreateMainStandardDTO create);
-        int DeleteById(int id);
+        bool DeleteById(int id);
+        public bool HasSubStandards(int id);
     }
 }

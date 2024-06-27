@@ -15,6 +15,6 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Domain.Interfaces
         IEnumerable<IndexSubStandardDTO> GetSubStandardsByMainStandardId(int mainStandardId);
         IndexSubStandardDTO GetSubStandardById(int id);
         SubStandard EditSubStandardById(int id, EditSubStandardDTO editSubStandardDTO);
-        void DeleteSubStandardById(int id);
+        bool DeleteSubStandardById(int id);
     }
 }

@@ -13,10 +13,10 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Models
         public DbSet<Result> Results { get; set; }
         public DbSet<ResultType> ResultTypes { get; set; }
         public DbSet<SubStandardResult> SubStandardResults { get; set; }
+           public DbSet<Setting> Settings { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-           //modelBuilder.Entity<SubStandardResult>()
-           //     .HasKey(sr => new {sr.SubStandardId, sr.ResultId});
+        
             base.OnModelCreating(modelBuilder);
 
             // Ensure the IdentityUserRole primary key is defined

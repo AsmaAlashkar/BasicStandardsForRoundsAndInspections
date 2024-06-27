@@ -1,8 +1,10 @@
-﻿using BasicStandardsForRoundsAndInspectionsAPI.Domain.Interfaces;
+﻿using BasicStandardsForRoundsAndInspectionsAPI.Controllers.Helpers;
+using BasicStandardsForRoundsAndInspectionsAPI.Domain.Interfaces;
 using BasicStandardsForRoundsAndInspectionsAPI.Models;
 using BasicStandardsForRoundsAndInspectionsAPI.ViewModels.ViewModels.MainstandardDTO;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace BasicStandardsForRoundsAndInspectionsAPI.Controllers
 {
@@ -12,25 +14,29 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Controllers
     {
         private readonly IMainStandardRepository _mainStandardRepository;
 
-        public MainStandardController(IMainStandardRepository mainStandardRepository)
+        private readonly ISubStandardRepository _subStandardRepository;
+        public MainStandardController(IMainStandardRepository mainStandardRepository, ISubStandardRepository subStandardRepository)
         {
-           _mainStandardRepository = mainStandardRepository;
+            _mainStandardRepository = mainStandardRepository;
+            _subStandardRepository = subStandardRepository;
         }
         [HttpGet("GetMainStandards")]
-        
+
         public IActionResult GetMainStandards()
         {
+
+
             var MainStandards = _mainStandardRepository.GetMainStandards();
-            if(!ModelState.IsValid)
+            if (!ModelState.IsValid)
                 return BadRequest(ModelState);
             return Ok(MainStandards);
         }
-        
+
         [HttpGet]
         [Route("GetById/{id}")]
         public IActionResult GetById(int id)
         {
-            var mainStandard =  _mainStandardRepository.GetById(id);
+            var mainStandard = _mainStandardRepository.GetById(id);
             return Ok(mainStandard);
         }
 
@@ -38,7 +44,7 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Controllers
         [Route("EditById/{id}")]
         public IActionResult EditById(int id, EditMainStandardDTO editedMainStandardDTO)
         {
-            var editedMainStandard = _mainStandardRepository.EditById(id,editedMainStandardDTO);
+            var editedMainStandard = _mainStandardRepository.EditById(id, editedMainStandardDTO);
             return Ok(editedMainStandard);
         }
         [HttpPost("CreateMainStandard")]
@@ -51,8 +57,20 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Controllers
         [HttpDelete("DeleteMainStandard/{id}")]
         public IActionResult DeleteMainStandard(int id)
         {
-            var deleted =  _mainStandardRepository.DeleteById(id);
-            return Ok($"deleted {deleted}");
+
+            var lstSubs = _subStandardRepository.GetSubStandardsByMainStandardId(id);
+            if (lstSubs.Count() > 0)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "sub", Message = "There are sub Items", MessageAr = "يوجد بيانات فرعية" });
+            }
+            else
+            {
+                var isDeleted = _mainStandardRepository.DeleteById(id);
+                if (isDeleted)
+                    return Ok(true);
+            }
+             return NotFound(false);
         }
+
     }
 }
