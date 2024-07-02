@@ -70,8 +70,10 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Domain.Repository
                     _context.Remove(mainStandard);
                     _context.SaveChanges();
                     return true;
-            }  
+            }
+          
             return false;
+
         }
         public bool HasSubStandards(int id)
         {

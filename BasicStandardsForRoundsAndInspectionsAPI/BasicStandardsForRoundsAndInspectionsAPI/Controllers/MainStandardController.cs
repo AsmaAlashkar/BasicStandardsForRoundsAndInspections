@@ -61,15 +61,17 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Controllers
             var lstSubs = _subStandardRepository.GetSubStandardsByMainStandardId(id);
             if (lstSubs.Count() > 0)
             {
-                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "sub", Message = "There are sub Items", MessageAr = "يوجد بيانات فرعية" });
+                return StatusCode(StatusCodes.Status403Forbidden, new Response { Status = "sub", Message = "There are sub Items", MessageAr = "يوجد بيانات فرعية" });
             }
             else
             {
                 var isDeleted = _mainStandardRepository.DeleteById(id);
                 if (isDeleted)
                     return Ok(true);
+               
             }
              return NotFound(false);
+
         }
 
     }
