@@ -12,10 +12,9 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Models
 
         [MaxLength(100)]
         public string? TitleAr { get; set; }
-        //[MaxLength(10)]
-        //public string? Code { get; set; }
-        //[MaxLength(10)]
-        //public string? CodeAr { get; set; }
+
+        [MaxLength(3)]
+        public string? Code { get; set; }
 
         public List<SubStandard>? SubStandards { get; set; }
     }

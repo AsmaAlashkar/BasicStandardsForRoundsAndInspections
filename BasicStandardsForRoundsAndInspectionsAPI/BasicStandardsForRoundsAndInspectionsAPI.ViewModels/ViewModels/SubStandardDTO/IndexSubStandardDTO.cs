@@ -9,6 +9,8 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.ViewModels.ViewModels.SubStan
     public class IndexSubStandardDTO
     {
         public string? Description { get; set; }
+        public string? DescriptionAr { get; set; }
+        public string? Code { get; set; }
         public int? MainStandardId { get; set; }
     }
 }

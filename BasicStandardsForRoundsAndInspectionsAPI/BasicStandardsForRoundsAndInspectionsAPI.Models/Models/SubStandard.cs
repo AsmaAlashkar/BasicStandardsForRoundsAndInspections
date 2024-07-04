@@ -9,6 +9,10 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Models
         public int Id { get; set; }
  
         public string? Description { get; set; }
+        public string? DescriptionAr { get; set; }
+
+        [MaxLength(3)]
+        public string? Code { get; set; }
 
         public List<Result> Results { get; set; }= new List<Result>();
         [ForeignKey("MainStandardId")]
