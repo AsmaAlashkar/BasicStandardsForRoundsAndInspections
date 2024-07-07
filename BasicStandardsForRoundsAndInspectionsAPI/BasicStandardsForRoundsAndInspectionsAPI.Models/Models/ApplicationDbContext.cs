@@ -12,8 +12,7 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Models
         public DbSet<SubStandard> SubStandards { get; set; } 
         public DbSet<Result> Results { get; set; }
         public DbSet<ResultType> ResultTypes { get; set; }
-        public DbSet<SubStandardResult> SubStandardResults { get; set; }
-           public DbSet<Setting> Settings { get; set; }
+        public DbSet<Setting> Settings { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
         
@@ -36,6 +35,21 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Models
             {
                 entity.HasKey(e => new { e.UserId, e.LoginProvider, e.Name });
             });
+
+            // Configure the relationships and foreign keys
+            modelBuilder.Entity<SubStandard>()
+                .HasOne(s => s.ResultType)
+                .WithMany(rt => rt.SubStandards)
+                .HasForeignKey(s => s.ResultTypeId)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            modelBuilder.Entity<Result>()
+                .HasOne(r => r.ResultType)
+                .WithMany(rt => rt.Results)
+                .HasForeignKey(r => r.ResultTypeId)
+                .OnDelete(DeleteBehavior.NoAction);
+
         }
     }
 }
+ 

@@ -29,7 +29,8 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Domain.Repository
                 IndexMainStandardDTO dto = new IndexMainStandardDTO
                 {
                     Title = mainStandard.Title,
-                    TitleAr = mainStandard.TitleAr
+                    TitleAr = mainStandard.TitleAr,
+                    Code = mainStandard.Code
                 };
                 return dto;
             }
@@ -42,6 +43,7 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Domain.Repository
             {
                 mainStandardObj.Title = editedMainStandardDTO.Title;
                 mainStandardObj.TitleAr = editedMainStandardDTO.TitleAr;
+                mainStandardObj.Code = editedMainStandardDTO.Code;
                 _context.SaveChanges();
                 return mainStandardObj;
             }
@@ -54,7 +56,8 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Domain.Repository
             var newMainStandard = new MainStandard
             {
                 Title = create.Title,
-                TitleAr = create.TitleAr
+                TitleAr = create.TitleAr,
+                Code = create.Code
             };
             _context.Add(newMainStandard);
             _context.SaveChanges();

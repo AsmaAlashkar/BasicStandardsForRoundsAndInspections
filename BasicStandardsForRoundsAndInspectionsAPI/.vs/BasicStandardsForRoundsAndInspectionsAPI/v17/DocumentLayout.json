@@ -3,24 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\Dev010\\Documents\\BasicStandardsForRoundsAndInspections\\BasicStandardsForRoundsAndInspectionsAPI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2F30C785-F743-45DB-8B76-880041FC6302}|BasicStandardsForRoundsAndInspectionsAPI.Domain\\BasicStandardsForRoundsAndInspectionsAPI.Domain.csproj|c:\\users\\dev010\\documents\\basicstandardsforroundsandinspections\\basicstandardsforroundsandinspectionsapi\\basicstandardsforroundsandinspectionsapi.domain\\repository\\substandardrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2F30C785-F743-45DB-8B76-880041FC6302}|BasicStandardsForRoundsAndInspectionsAPI.Domain\\BasicStandardsForRoundsAndInspectionsAPI.Domain.csproj|solutionrelative:basicstandardsforroundsandinspectionsapi.domain\\repository\\substandardrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Dev010\\Documents\\BasicStandardsForRoundsAndInspections\\BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI.Models\\Migrations\\20240707134752_resultTypeUpdates.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:BasicStandardsForRoundsAndInspectionsAPI.Models\\Migrations\\20240707134752_resultTypeUpdates.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E7131903-B477-4A70-B5B3-A27ABC33FD3A}|BasicStandardsForRoundsAndInspectionsAPI.Models\\BasicStandardsForRoundsAndInspectionsAPI.Models.csproj|c:\\users\\dev010\\documents\\basicstandardsforroundsandinspections\\basicstandardsforroundsandinspectionsapi\\basicstandardsforroundsandinspectionsapi.models\\models\\mainstandard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E7131903-B477-4A70-B5B3-A27ABC33FD3A}|BasicStandardsForRoundsAndInspectionsAPI.Models\\BasicStandardsForRoundsAndInspectionsAPI.Models.csproj|solutionrelative:basicstandardsforroundsandinspectionsapi.models\\models\\mainstandard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E7131903-B477-4A70-B5B3-A27ABC33FD3A}|BasicStandardsForRoundsAndInspectionsAPI.Models\\BasicStandardsForRoundsAndInspectionsAPI.Models.csproj|c:\\users\\dev010\\documents\\basicstandardsforroundsandinspections\\basicstandardsforroundsandinspectionsapi\\basicstandardsforroundsandinspectionsapi.models\\models\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E7131903-B477-4A70-B5B3-A27ABC33FD3A}|BasicStandardsForRoundsAndInspectionsAPI.Models\\BasicStandardsForRoundsAndInspectionsAPI.Models.csproj|solutionrelative:basicstandardsforroundsandinspectionsapi.models\\models\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E7131903-B477-4A70-B5B3-A27ABC33FD3A}|BasicStandardsForRoundsAndInspectionsAPI.Models\\BasicStandardsForRoundsAndInspectionsAPI.Models.csproj|c:\\users\\dev010\\documents\\basicstandardsforroundsandinspections\\basicstandardsforroundsandinspectionsapi\\basicstandardsforroundsandinspectionsapi.models\\models\\substandard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E7131903-B477-4A70-B5B3-A27ABC33FD3A}|BasicStandardsForRoundsAndInspectionsAPI.Models\\BasicStandardsForRoundsAndInspectionsAPI.Models.csproj|solutionrelative:basicstandardsforroundsandinspectionsapi.models\\models\\substandard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{69FAC7B6-2FCC-4958-986F-8515E2118B92}|BasicStandardsForRoundsAndInspectionsAPI.ViewModels\\BasicStandardsForRoundsAndInspectionsAPI.ViewModels.csproj|c:\\users\\dev010\\documents\\basicstandardsforroundsandinspections\\basicstandardsforroundsandinspectionsapi\\basicstandardsforroundsandinspectionsapi.viewmodels\\viewmodels\\substandarddto\\indexsubstandarddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{69FAC7B6-2FCC-4958-986F-8515E2118B92}|BasicStandardsForRoundsAndInspectionsAPI.ViewModels\\BasicStandardsForRoundsAndInspectionsAPI.ViewModels.csproj|solutionrelative:basicstandardsforroundsandinspectionsapi.viewmodels\\viewmodels\\substandarddto\\indexsubstandarddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E7131903-B477-4A70-B5B3-A27ABC33FD3A}|BasicStandardsForRoundsAndInspectionsAPI.Models\\BasicStandardsForRoundsAndInspectionsAPI.Models.csproj|c:\\users\\dev010\\documents\\basicstandardsforroundsandinspections\\basicstandardsforroundsandinspectionsapi\\basicstandardsforroundsandinspectionsapi.models\\models\\resulttype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E7131903-B477-4A70-B5B3-A27ABC33FD3A}|BasicStandardsForRoundsAndInspectionsAPI.Models\\BasicStandardsForRoundsAndInspectionsAPI.Models.csproj|solutionrelative:basicstandardsforroundsandinspectionsapi.models\\models\\resulttype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CEEB7ED6-626F-4BF3-A595-4E825EE2F378}|BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI.csproj|c:\\users\\dev010\\documents\\basicstandardsforroundsandinspections\\basicstandardsforroundsandinspectionsapi\\basicstandardsforroundsandinspectionsapi\\controllers\\substandardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CEEB7ED6-626F-4BF3-A595-4E825EE2F378}|BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI.csproj|solutionrelative:basicstandardsforroundsandinspectionsapi\\controllers\\substandardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E7131903-B477-4A70-B5B3-A27ABC33FD3A}|BasicStandardsForRoundsAndInspectionsAPI.Models\\BasicStandardsForRoundsAndInspectionsAPI.Models.csproj|c:\\users\\dev010\\documents\\basicstandardsforroundsandinspections\\basicstandardsforroundsandinspectionsapi\\basicstandardsforroundsandinspectionsapi.models\\models\\result.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E7131903-B477-4A70-B5B3-A27ABC33FD3A}|BasicStandardsForRoundsAndInspectionsAPI.Models\\BasicStandardsForRoundsAndInspectionsAPI.Models.csproj|solutionrelative:basicstandardsforroundsandinspectionsapi.models\\models\\result.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Dev010\\Documents\\BasicStandardsForRoundsAndInspections\\BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI.Models\\Migrations\\20240707131822_someUpdates.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:BasicStandardsForRoundsAndInspectionsAPI.Models\\Migrations\\20240707131822_someUpdates.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,19 +34,72 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "MainStandard.cs",
-              "DocumentMoniker": "C:\\Users\\Dev010\\Documents\\BasicStandardsForRoundsAndInspections\\BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI.Models\\Models\\MainStandard.cs",
-              "RelativeDocumentMoniker": "BasicStandardsForRoundsAndInspectionsAPI.Models\\Models\\MainStandard.cs",
-              "ToolTip": "C:\\Users\\Dev010\\Documents\\BasicStandardsForRoundsAndInspections\\BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI.Models\\Models\\MainStandard.cs",
-              "RelativeToolTip": "BasicStandardsForRoundsAndInspectionsAPI.Models\\Models\\MainStandard.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAApAAAA",
+              "DocumentIndex": 0,
+              "Title": "20240707134752_resultTypeUpdates.cs",
+              "DocumentMoniker": "C:\\Users\\Dev010\\Documents\\BasicStandardsForRoundsAndInspections\\BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI.Models\\Migrations\\20240707134752_resultTypeUpdates.cs",
+              "RelativeDocumentMoniker": "BasicStandardsForRoundsAndInspectionsAPI.Models\\Migrations\\20240707134752_resultTypeUpdates.cs",
+              "ToolTip": "C:\\Users\\Dev010\\Documents\\BasicStandardsForRoundsAndInspections\\BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI.Models\\Migrations\\20240707134752_resultTypeUpdates.cs",
+              "RelativeToolTip": "BasicStandardsForRoundsAndInspectionsAPI.Models\\Migrations\\20240707134752_resultTypeUpdates.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-04T11:55:57.965Z"
+              "WhenOpened": "2024-07-07T13:47:52.427Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "20240707131822_someUpdates.cs",
+              "DocumentMoniker": "C:\\Users\\Dev010\\Documents\\BasicStandardsForRoundsAndInspections\\BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI.Models\\Migrations\\20240707131822_someUpdates.cs",
+              "RelativeDocumentMoniker": "BasicStandardsForRoundsAndInspectionsAPI.Models\\Migrations\\20240707131822_someUpdates.cs",
+              "ToolTip": "C:\\Users\\Dev010\\Documents\\BasicStandardsForRoundsAndInspections\\BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI.Models\\Migrations\\20240707131822_someUpdates.cs",
+              "RelativeToolTip": "BasicStandardsForRoundsAndInspectionsAPI.Models\\Migrations\\20240707131822_someUpdates.cs",
+              "ViewState": "AQIAADcAAAAAAAAAAAAgwDsAAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-07T13:18:22.323Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\Dev010\\Documents\\BasicStandardsForRoundsAndInspections\\BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI.Models\\Models\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "BasicStandardsForRoundsAndInspectionsAPI.Models\\Models\\ApplicationDbContext.cs",
+              "ToolTip": "C:\\Users\\Dev010\\Documents\\BasicStandardsForRoundsAndInspections\\BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI.Models\\Models\\ApplicationDbContext.cs",
+              "RelativeToolTip": "BasicStandardsForRoundsAndInspectionsAPI.Models\\Models\\ApplicationDbContext.cs",
+              "ViewState": "AQIAAB4AAAAAAAAAAAAUwDIAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-07T12:57:00.463Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Result.cs",
+              "DocumentMoniker": "C:\\Users\\Dev010\\Documents\\BasicStandardsForRoundsAndInspections\\BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI.Models\\Models\\Result.cs",
+              "RelativeDocumentMoniker": "BasicStandardsForRoundsAndInspectionsAPI.Models\\Models\\Result.cs",
+              "ToolTip": "C:\\Users\\Dev010\\Documents\\BasicStandardsForRoundsAndInspections\\BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI.Models\\Models\\Result.cs",
+              "RelativeToolTip": "BasicStandardsForRoundsAndInspectionsAPI.Models\\Models\\Result.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-07T06:50:59.697Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ResultType.cs",
+              "DocumentMoniker": "C:\\Users\\Dev010\\Documents\\BasicStandardsForRoundsAndInspections\\BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI.Models\\Models\\ResultType.cs",
+              "RelativeDocumentMoniker": "BasicStandardsForRoundsAndInspectionsAPI.Models\\Models\\ResultType.cs",
+              "ToolTip": "C:\\Users\\Dev010\\Documents\\BasicStandardsForRoundsAndInspections\\BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI.Models\\Models\\ResultType.cs",
+              "RelativeToolTip": "BasicStandardsForRoundsAndInspectionsAPI.Models\\Models\\ResultType.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-07T06:41:19.83Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -52,46 +109,10 @@
               "RelativeDocumentMoniker": "BasicStandardsForRoundsAndInspectionsAPI.Models\\Models\\SubStandard.cs",
               "ToolTip": "C:\\Users\\Dev010\\Documents\\BasicStandardsForRoundsAndInspections\\BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI.Models\\Models\\SubStandard.cs",
               "RelativeToolTip": "BasicStandardsForRoundsAndInspectionsAPI.Models\\Models\\SubStandard.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAApAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-04T11:55:56.244Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "IndexSubStandardDTO.cs",
-              "DocumentMoniker": "C:\\Users\\Dev010\\Documents\\BasicStandardsForRoundsAndInspections\\BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI.ViewModels\\ViewModels\\SubStandardDTO\\IndexSubStandardDTO.cs",
-              "RelativeDocumentMoniker": "BasicStandardsForRoundsAndInspectionsAPI.ViewModels\\ViewModels\\SubStandardDTO\\IndexSubStandardDTO.cs",
-              "ToolTip": "C:\\Users\\Dev010\\Documents\\BasicStandardsForRoundsAndInspections\\BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI.ViewModels\\ViewModels\\SubStandardDTO\\IndexSubStandardDTO.cs",
-              "RelativeToolTip": "BasicStandardsForRoundsAndInspectionsAPI.ViewModels\\ViewModels\\SubStandardDTO\\IndexSubStandardDTO.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAbAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-04T11:52:50.857Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "SubStandardRepository.cs",
-              "DocumentMoniker": "C:\\Users\\Dev010\\Documents\\BasicStandardsForRoundsAndInspections\\BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI.Domain\\Repository\\SubStandardRepository.cs",
-              "RelativeDocumentMoniker": "BasicStandardsForRoundsAndInspectionsAPI.Domain\\Repository\\SubStandardRepository.cs",
-              "ToolTip": "C:\\Users\\Dev010\\Documents\\BasicStandardsForRoundsAndInspections\\BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI.Domain\\Repository\\SubStandardRepository.cs",
-              "RelativeToolTip": "BasicStandardsForRoundsAndInspectionsAPI.Domain\\Repository\\SubStandardRepository.cs",
-              "ViewState": "AQIAADsAAAAAAAAAAAAIwEAAAAAgAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-04T11:52:07.207Z",
+              "WhenOpened": "2024-07-07T06:18:44.739Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "SubStandardController.cs",
-              "DocumentMoniker": "C:\\Users\\Dev010\\Documents\\BasicStandardsForRoundsAndInspections\\BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI\\Controllers\\SubStandardController.cs",
-              "RelativeDocumentMoniker": "BasicStandardsForRoundsAndInspectionsAPI\\Controllers\\SubStandardController.cs",
-              "ToolTip": "C:\\Users\\Dev010\\Documents\\BasicStandardsForRoundsAndInspections\\BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI\\Controllers\\SubStandardController.cs",
-              "RelativeToolTip": "BasicStandardsForRoundsAndInspectionsAPI\\Controllers\\SubStandardController.cs",
-              "ViewState": "AQIAABsAAAAAAAAAAAAowAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-04T11:51:57.006Z"
             }
           ]
         }

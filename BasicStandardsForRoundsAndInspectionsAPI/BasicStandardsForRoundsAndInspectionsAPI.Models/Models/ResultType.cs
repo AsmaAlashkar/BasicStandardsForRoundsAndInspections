@@ -6,8 +6,11 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Models
     {
         [Key]
         public int Id { get; set; }
-        [Required]
-        public string Name { get; set; }
-        public List<Result> Results { get; set; } = new List<Result>();
+        public string? Name { get; set; }
+        public string? NameAr { get; set; }
+        public IEnumerable<SubStandard>? SubStandards { get; set; }
+        public IEnumerable<Result>? Results { get; set; }
+
+
     }
 }

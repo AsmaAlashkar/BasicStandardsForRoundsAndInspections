@@ -10,6 +10,7 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.ViewModels.ViewModels.Mainsta
     {
         public string? Title { get; set; }
         public string? TitleAr { get; set; }
+        public string? Code { get; set; }
         public bool HasSubStandards { get; set; }
     }
 }

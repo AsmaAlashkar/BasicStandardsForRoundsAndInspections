@@ -4,6 +4,7 @@ using BasicStandardsForRoundsAndInspectionsAPI.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BasicStandardsForRoundsAndInspectionsAPI.Models.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240707131822_someUpdates")]
+    partial class someUpdates
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -158,7 +161,7 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Models.Migrations
                     b.Property<int>("ResultTypeId")
                         .HasColumnType("int");
 
-                    b.Property<int>("SubStandardId")
+                    b.Property<int?>("SubStandardId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -210,7 +213,7 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Models.Migrations
                     b.Property<int>("MainStandardId")
                         .HasColumnType("int");
 
-                    b.Property<int>("ResultTypeId")
+                    b.Property<int?>("ResultTypeId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -360,14 +363,12 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Models.Migrations
                     b.HasOne("BasicStandardsForRoundsAndInspectionsAPI.Models.ResultType", "ResultType")
                         .WithMany("Results")
                         .HasForeignKey("ResultTypeId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("BasicStandardsForRoundsAndInspectionsAPI.Models.SubStandard", "SubStandard")
                         .WithMany()
-                        .HasForeignKey("SubStandardId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("SubStandardId");
 
                     b.Navigation("ResultType");
 
@@ -384,9 +385,7 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Models.Migrations
 
                     b.HasOne("BasicStandardsForRoundsAndInspectionsAPI.Models.ResultType", "ResultType")
                         .WithMany("SubStandards")
-                        .HasForeignKey("ResultTypeId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
+                        .HasForeignKey("ResultTypeId");
 
                     b.Navigation("MainStandard");
 

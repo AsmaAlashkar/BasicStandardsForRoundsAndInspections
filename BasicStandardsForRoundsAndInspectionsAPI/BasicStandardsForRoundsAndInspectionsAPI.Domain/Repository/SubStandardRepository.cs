@@ -27,6 +27,8 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Domain.Repository
                 var newSubStandard = new SubStandard
                 {
                     Description = createSubStandardDTO.Description,
+                    DescriptionAr = createSubStandardDTO.DescriptionAr,
+                    Code = createSubStandardDTO.Code,
                     MainStandardId = createSubStandardDTO.MainStandardId
                 };
                 _context.Add(newSubStandard);
@@ -44,6 +46,8 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Domain.Repository
                 var subStandardDTO = new IndexSubStandardDTO
                 {
                     Description = subStandard.Description,
+                    DescriptionAr = subStandard.DescriptionAr,
+                    Code = subStandard.Code,
                     MainStandardId = subStandard.MainStandardId
                 };
                 return subStandardDTO;
@@ -73,6 +77,8 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Domain.Repository
             if (subStandardObj != null)
             {
                 subStandardObj.Description = editSubStandardDTO.Description;
+                subStandardObj.Code = editSubStandardDTO.Code;
+                subStandardObj.DescriptionAr = editSubStandardDTO.DescriptionAr;
                 subStandardObj.MainStandardId = editSubStandardDTO.MainStandardId;
                 _context.SaveChanges();
                 return subStandardObj;
