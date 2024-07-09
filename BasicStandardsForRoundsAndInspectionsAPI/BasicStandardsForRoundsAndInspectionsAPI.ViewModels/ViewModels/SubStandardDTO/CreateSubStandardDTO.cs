@@ -14,5 +14,7 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.ViewModels.ViewModels.SubStan
         public string? Code { get; set; }
         public string? Description { get; set; }
         public int MainStandardId { get; set; }
+        public int ResultTypeId { get; set; }
+
     }
 }

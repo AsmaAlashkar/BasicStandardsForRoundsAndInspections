@@ -24,8 +24,6 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Controllers
 
         public IActionResult GetMainStandards()
         {
-
-
             var MainStandards = _mainStandardRepository.GetMainStandards();
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);

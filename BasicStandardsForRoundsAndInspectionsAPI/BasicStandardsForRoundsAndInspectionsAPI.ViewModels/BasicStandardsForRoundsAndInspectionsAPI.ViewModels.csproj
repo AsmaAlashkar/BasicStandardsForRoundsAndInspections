@@ -6,4 +6,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Reference Include="BasicStandardsForRoundsAndInspectionsAPI.Models">
+      <HintPath>..\BasicStandardsForRoundsAndInspectionsAPI.Models\bin\Debug\net8.0\BasicStandardsForRoundsAndInspectionsAPI.Models.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

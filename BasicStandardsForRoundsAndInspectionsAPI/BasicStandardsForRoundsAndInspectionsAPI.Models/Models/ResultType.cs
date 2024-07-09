@@ -11,6 +11,5 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Models
         public IEnumerable<SubStandard>? SubStandards { get; set; }
         public IEnumerable<Result>? Results { get; set; }
 
-
     }
 }
