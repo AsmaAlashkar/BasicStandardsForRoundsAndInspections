@@ -8,8 +8,8 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Models
         [Key]
         public int Id { get; set; }
         [Required]
-        public string? Description { get; set; }
-        public string? DescriptionAr { get; set; }
+        public string? ResultValue { get; set; }
+        public string? ResultValueAr { get; set; }
         public int SubStandardId { get; set; }
         public SubStandard? SubStandard { get; set; }
         public int ResultTypeId { get; set; }

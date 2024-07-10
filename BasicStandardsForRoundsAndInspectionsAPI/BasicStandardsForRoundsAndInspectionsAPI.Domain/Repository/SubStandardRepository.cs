@@ -66,6 +66,7 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Domain.Repository
         {
             return _context.SubStandards.Where(s=>s.MainStandardId == mainStandardId).ToList().Select(item=> new IndexSubStandardDTO
             {
+                Id = item.Id,
                 Description= item.Description,
                 DescriptionAr= item.DescriptionAr,
                 Code= item.Code,
