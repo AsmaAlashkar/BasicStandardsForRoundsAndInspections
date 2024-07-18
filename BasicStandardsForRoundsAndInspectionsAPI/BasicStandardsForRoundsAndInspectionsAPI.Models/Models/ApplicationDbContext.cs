@@ -10,9 +10,13 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Models
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options):base(options) { }
         public DbSet<MainStandard> MainStandards { get; set; }
         public DbSet<SubStandard> SubStandards { get; set; } 
-        public DbSet<Result> Results { get; set; }
         public DbSet<ResultType> ResultTypes { get; set; }
+        public virtual DbSet<Result> Results { get; set; }
         public DbSet<Setting> Settings { get; set; }
+        public virtual DbSet<City> Cities { get; set; }
+        public virtual DbSet<Governorate> Governorates { get; set; }
+        public virtual DbSet<Employee> Employees { get; set; }
+        public virtual DbSet<Hospital> Hospitals { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
         
@@ -43,11 +47,58 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Models
                 .HasForeignKey(s => s.ResultTypeId)
                 .OnDelete(DeleteBehavior.NoAction);
 
-            modelBuilder.Entity<Result>()
-                .HasOne(r => r.ResultType)
-                .WithMany(rt => rt.Results)
-                .HasForeignKey(r => r.ResultTypeId)
-                .OnDelete(DeleteBehavior.NoAction);
+
+            modelBuilder.Entity<Result>(entity =>
+            {
+                entity.HasKey(e => new { e.HospitalId, e.ReportDate, e.SubstandardId });
+
+                entity.Property(e => e.ReportDate).HasColumnType("datetime");
+            });
+
+
+            modelBuilder.Entity<City>(entity =>
+            {
+                entity.Property(e => e.Code).HasMaxLength(5);
+                entity.Property(e => e.Latitude).HasColumnType("decimal(18, 8)");
+                entity.Property(e => e.Longtitude).HasColumnType("decimal(18, 8)");
+                entity.Property(e => e.Name).HasMaxLength(50);
+                entity.Property(e => e.NameAr).HasMaxLength(50);
+
+                entity.HasOne(d => d.Governorate).WithMany(p => p.Cities).HasForeignKey(d => d.GovernorateId);
+            });
+
+            modelBuilder.Entity<Governorate>(entity =>
+            {
+                entity.Property(e => e.Area).HasColumnType("decimal(18, 2)");
+                entity.Property(e => e.Code).HasMaxLength(5);
+                entity.Property(e => e.Latitude).HasColumnType("decimal(18, 8)");
+                entity.Property(e => e.Logo).HasMaxLength(50);
+                entity.Property(e => e.Longtitude).HasColumnType("decimal(18, 8)");
+                entity.Property(e => e.Name).HasMaxLength(50);
+                entity.Property(e => e.NameAr).HasMaxLength(50);
+                entity.Property(e => e.Population).HasColumnType("decimal(18, 3)");
+            });
+            modelBuilder.Entity<Employee>(entity =>
+            {
+                entity.Property(e => e.Code).HasMaxLength(5);
+                entity.Property(e => e.Email).HasMaxLength(320);
+                entity.Property(e => e.Name).HasMaxLength(100);
+                entity.Property(e => e.PhoneNumber).HasMaxLength(20);
+                entity.Property(e => e.Position).HasMaxLength(100);
+            });
+
+            modelBuilder.Entity<Hospital>(entity =>
+            {
+                entity.Property(e => e.Code).HasMaxLength(5);
+                entity.Property(e => e.Email).HasMaxLength(320);
+                entity.Property(e => e.Latitude).HasColumnType("decimal(18, 2)");
+                entity.Property(e => e.Longtitude).HasColumnType("decimal(18, 2)");
+                entity.Property(e => e.ManagerName).HasMaxLength(50);
+                entity.Property(e => e.ManagerNameAr).HasMaxLength(50);
+                entity.Property(e => e.Mobile).HasMaxLength(20);
+                entity.Property(e => e.Name).HasMaxLength(50);
+                entity.Property(e => e.NameAr).HasMaxLength(50);
+            });
 
         }
     }

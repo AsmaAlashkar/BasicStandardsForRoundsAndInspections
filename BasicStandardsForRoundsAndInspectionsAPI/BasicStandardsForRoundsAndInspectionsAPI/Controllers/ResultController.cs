@@ -1,4 +1,5 @@
 ﻿using BasicStandardsForRoundsAndInspectionsAPI.Domain.Interfaces;
+using BasicStandardsForRoundsAndInspectionsAPI.Models.Models;
 using BasicStandardsForRoundsAndInspectionsAPI.ViewModels.ViewModels.ResultDTO;
 using BasicStandardsForRoundsAndInspectionsAPI.ViewModels.ViewModels.SubStandardDTO;
 using Microsoft.AspNetCore.Http;
@@ -24,36 +25,47 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Controllers
                 return BadRequest(ModelState);
             return Ok(allResults);
         }
-        [HttpGet("GetResultBySubStandardId/{subStandardId}")]
-        public IEnumerable<IndexResultDTO> GetResultBySubStandardId(int subStandardId)
+
+        [HttpGet("GetResultsByHospitalId/{hospitalId}")]
+        public IEnumerable<IndexResultDTO> GetResultsByHospitalId(int hospitalId)
         {
-            var allResultBySubStandardId = _resultRepository.GetResultBySubStandardId(subStandardId);
-            return allResultBySubStandardId;
+            var resultsByHospitalId = _resultRepository.GetResultsByHospitalId(hospitalId);
+            return resultsByHospitalId;
         }
-        [HttpGet("GetResultById/{id}")]
-        public IActionResult GetResultById(int id)
+
+        [HttpGet("GetResultsByReportTakerId/{employeeId}")]
+        public IEnumerable<IndexResultDTO> GetResultsByReportTakerId(int employeeId)
         {
-            var result = _resultRepository.GetResultById(id);
-            return Ok(result);
+            var resultsByReportTakerId = _resultRepository.GetResultsByReportTakerId(employeeId);
+            return resultsByReportTakerId;
         }
+        [HttpGet("GetResultsByDate/{date}")]
+        public IEnumerable<IndexResultDTO> GetResultsByDate(DateTime date)
+        {
+            var resultsByDate = _resultRepository.GetResultsByDate(date);
+            return resultsByDate;
+        }
+
         [HttpPost]
         [Route("CreateResult")]
         public IActionResult CreateResult(CreateResultDTO createResultDTO)
         {
-            var result = _resultRepository.CreateOrUpdateResult(createResultDTO);
+            var result = _resultRepository.CreateResult(createResultDTO);
             return Ok(result);
         }
-        //[HttpPut]
-        //[Route("EditResultById/{id}")]
-        //public IActionResult EditResultById(int id, EditResultDTO editedResultDTO)
-        //{
-        //    var editedResult = _resultRepository.EditResultById(id, editedResultDTO);
-        //    return Ok(editedResult);
-        //}
-        [HttpDelete("DeleteResultById/{id}")]
-        public IActionResult DeleteResultById(int id)
+
+        [HttpPut]
+        [Route("EditResult")]
+        public IActionResult EditResult(EditResultDTO editedResultDTO)
         {
-            bool isDeleted = _resultRepository.DeleteResultById(id);
+            var editedResult = _resultRepository.EditResult(editedResultDTO);
+            return Ok(editedResult);
+        }
+
+        [HttpDelete("DeleteResult")]
+        public IActionResult DeleteResult(DeleteResultDTO deletedResultDTO)
+        {
+            bool isDeleted = _resultRepository.DeleteResult(deletedResultDTO);
             if (isDeleted)
             {
                 return Ok(true);

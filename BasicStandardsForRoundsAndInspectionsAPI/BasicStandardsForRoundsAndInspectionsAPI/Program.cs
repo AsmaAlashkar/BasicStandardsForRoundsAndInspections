@@ -9,13 +9,17 @@ using Microsoft.Extensions.Options;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
 builder.Services.AddScoped<IMainStandardRepository, MainStandardRepository>();
 builder.Services.AddScoped<ISubStandardRepository, SubStandardRepository>();
 builder.Services.AddScoped<IResultTypeRepository, ResultTypeRepository>();
 builder.Services.AddScoped<IResultRepository, ResultRepository>();
 builder.Services.AddScoped<ISettingRepository, SettingRepositories>();
+
+
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
 builder.Services.AddAuthorization();
 
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>()

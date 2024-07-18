@@ -44,7 +44,7 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Models.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("MainStandards");
+                    b.ToTable("MainStandards", (string)null);
                 });
 
             modelBuilder.Entity("BasicStandardsForRoundsAndInspectionsAPI.Models.Models.ApplicationUser", b =>
@@ -137,7 +137,7 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Models.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Settings");
+                    b.ToTable("Settings", (string)null);
                 });
 
             modelBuilder.Entity("BasicStandardsForRoundsAndInspectionsAPI.Models.Result", b =>
@@ -167,7 +167,7 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Models.Migrations
 
                     b.HasIndex("SubStandardId");
 
-                    b.ToTable("Results");
+                    b.ToTable("Results", (string)null);
                 });
 
             modelBuilder.Entity("BasicStandardsForRoundsAndInspectionsAPI.Models.ResultType", b =>
@@ -186,7 +186,7 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Models.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ResultTypes");
+                    b.ToTable("ResultTypes", (string)null);
                 });
 
             modelBuilder.Entity("BasicStandardsForRoundsAndInspectionsAPI.Models.SubStandard", b =>
@@ -219,7 +219,7 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Models.Migrations
 
                     b.HasIndex("ResultTypeId");
 
-                    b.ToTable("SubStandards");
+                    b.ToTable("SubStandards", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
