@@ -17,103 +17,97 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Domain.Repository
         {
             _context = context;
         }
-
-        public IEnumerable<IndexResultDTO> GetResults()
+        public IEnumerable<IndexReportDTO> GetReports()
         {
-
-            var results = from result in _context.Results
-                          join hospital in _context.Hospitals on result.HospitalId equals hospital.Id
-                          join employee in _context.Employees on result.ReportTakerId equals employee.Id
-                          join substandard in _context.SubStandards on result.SubstandardId equals substandard.Id
-                          join mainStandard in _context.MainStandards on substandard.MainStandardId equals mainStandard.Id
-                          select new IndexResultDTO
-                          {
-                              HospitalId = result.HospitalId,
-                              HospitalName = hospital.Name,
-                              HospitalNameAr = hospital.NameAr,
-                              ReportDate = result.ReportDate,
-                              ReportTakerId = result.ReportTakerId,
-                              ReportTakerName = employee.Name,
-                              SubstandardId = result.SubstandardId,
-                              SubstandardName = substandard.Description,
-                              SubstandardNameAr = substandard.DescriptionAr,
-                              ResultValue = result.ResultValue,
-                              MainStandardId = mainStandard.Id,
-                              MainStandardName = mainStandard.Title,
-                              MainStandardNameAr = mainStandard.TitleAr
-                          };
-
-
-            return results.ToList();
-        }
-
-        public IEnumerable<IndexResultDTO> GetResultsByDate(DateTime date)
-        {
-            return _context.Results.Where(rd => rd.ReportDate == date).ToList().Select(item => new IndexResultDTO
-            {
-                HospitalId = item.HospitalId,
-                ReportDate = item.ReportDate,
-                ReportTakerId = item.ReportTakerId,
-                SubstandardId = item.SubstandardId,
-                ResultValue = item.ResultValue,
-                Comment= item.Comment
-            });
-        }
-
-        public IEnumerable<IndexResultDTO> GetResultsByReportTakerId(int employeeId)
-        {
-            return _context.Results.Where(rd => rd.ReportTakerId == employeeId).ToList().Select(item => new IndexResultDTO
-            {
-                HospitalId = item.HospitalId,
-                ReportDate = item.ReportDate,
-                ReportTakerId = item.ReportTakerId,
-                SubstandardId = item.SubstandardId,
-                ResultValue = item.ResultValue,
-                Comment = item.Comment
-            });
-        }
-
-        public IEnumerable<IndexResultDTO> GetResultsByHospitalId(int hospitalId)
-        {
-            return _context.Results.Where(rd => rd.HospitalId == hospitalId).ToList().Select(item => new IndexResultDTO
-            {
-                HospitalId = item.HospitalId,
-                ReportDate = item.ReportDate,
-                ReportTakerId = item.ReportTakerId,
-                SubstandardId = item.SubstandardId,
-                ResultValue = item.ResultValue,
-                Comment = item.Comment
-            });
-        }
-
-        public Result CreateResult(CreateResultDTO createResultDTO)
-        {
-            var subStandardExists = _context.SubStandards.Any(x => x.Id == createResultDTO.SubstandardId);
-            var hospitalExists = _context.Hospitals.Any(x => x.Id == createResultDTO.HospitalId);
-            var reportTakerExists = _context.Employees.Any(x => x.Id == createResultDTO.ReportTakerId);
-
-            if (hospitalExists && reportTakerExists && subStandardExists)
-            {
-                var existingResult = _context.Results.FirstOrDefault(x => x.SubstandardId == createResultDTO.SubstandardId);
-                if (existingResult == null)
+            var reports = _context.Results
+                .GroupBy(r => new { r.HospitalId, r.ReportDate })
+                .Select(group => new IndexReportDTO
                 {
-                    var result = new Result
+                    HospitalId = group.Key.HospitalId,
+                    HospitalName = group.FirstOrDefault().Hospital.Name,
+                    HospitalNameAr = group.FirstOrDefault().Hospital.NameAr,
+                    ReportDate = group.Key.ReportDate,
+                    ReportTakerId = group.FirstOrDefault().ReportTakerId,
+                    ReportTakerName = group.FirstOrDefault().ReportTaker != null ? group.FirstOrDefault().ReportTaker.Name : null
+                });
+
+            return reports.ToList();
+        }
+
+        public IEnumerable<IndexReportDTO> GetResultsByDate(DateTime date)
+        {
+            return _context.Results.Where(rd => rd.ReportDate == date).ToList().Select(item => new IndexReportDTO
+            {
+                HospitalId = item.HospitalId,
+                ReportDate = item.ReportDate,
+                ReportTakerId = item.ReportTakerId,
+               
+            });
+        }
+
+        public IEnumerable<IndexReportDTO> GetResultsByReportTakerId(int employeeId)
+        {
+            return _context.Results.Where(rd => rd.ReportTakerId == employeeId).ToList().Select(item => new IndexReportDTO
+            {
+                HospitalId = item.HospitalId,
+                ReportDate = item.ReportDate,
+                ReportTakerId = item.ReportTakerId,
+               
+            });
+        }
+
+        public IEnumerable<IndexReportDTO> GetResultsByHospitalId(int hospitalId)
+        {
+            return _context.Results.Where(rd => rd.HospitalId == hospitalId).ToList().Select(item => new IndexReportDTO
+            {
+                HospitalId = item.HospitalId,
+                ReportDate = item.ReportDate,
+                ReportTakerId = item.ReportTakerId,
+              
+            });
+        }
+        public IEnumerable<Result> CreateResults(IEnumerable<CreateResultDTO> createResultDTOs)
+        {
+            var resultsToAdd = new List<Result>();
+            foreach (var createResultDTO in createResultDTOs)
+            {
+                var subStandardExists = _context.SubStandards.Any(x => x.Id == createResultDTO.SubstandardId);
+                var hospitalExists = _context.Hospitals.Any(x => x.Id == createResultDTO.HospitalId);
+                var reportTakerExists = createResultDTO.ReportTakerId.HasValue
+                    ? _context.Employees.Any(x => x.Id == createResultDTO.ReportTakerId.Value): true;
+
+                if (hospitalExists && subStandardExists && reportTakerExists)
+                {
+                    var existingResult = _context.Results
+                        .Any(x => x.HospitalId == createResultDTO.HospitalId
+                               && x.ReportDate == createResultDTO.ReportDate
+                               && x.ReportTakerId == createResultDTO.ReportTakerId
+                               && x.SubstandardId == createResultDTO.SubstandardId);
+
+                    if (!existingResult)
                     {
-                        HospitalId = createResultDTO.HospitalId,
-                        ReportDate = createResultDTO.ReportDate,
-                        ReportTakerId = createResultDTO.ReportTakerId,
-                        ResultValue = createResultDTO.ResultValue,
-                        SubstandardId=createResultDTO.SubstandardId,
-                        Comment = createResultDTO.Comment
-                    };
-                    _context.Results.Add(result);
-                    _context.SaveChanges();
-                    return result;
+                        var result = new Result
+                        {
+                            HospitalId = createResultDTO.HospitalId,
+                            ReportDate = createResultDTO.ReportDate,
+                            ReportTakerId = createResultDTO.ReportTakerId,
+                            ResultValue = createResultDTO.ResultValue,
+                            SubstandardId = createResultDTO.SubstandardId,
+                            Comment = createResultDTO.Comment
+                        };
+
+                        resultsToAdd.Add(result);
+                    }
                 }
             }
-            return null;
-        }
+            if (resultsToAdd.Any())
+            {
+                _context.Results.AddRange(resultsToAdd);
+                _context.SaveChanges();
+            }
 
+            return resultsToAdd;
+        }
 
         public Result EditResult(EditResultDTO editedResultDTO)
         {

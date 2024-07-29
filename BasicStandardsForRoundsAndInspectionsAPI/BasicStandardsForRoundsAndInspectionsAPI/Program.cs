@@ -14,6 +14,10 @@ builder.Services.AddScoped<IMainStandardRepository, MainStandardRepository>();
 builder.Services.AddScoped<ISubStandardRepository, SubStandardRepository>();
 builder.Services.AddScoped<IResultTypeRepository, ResultTypeRepository>();
 builder.Services.AddScoped<IResultRepository, ResultRepository>();
+builder.Services.AddScoped<IHospitalRepository, HospitalRepository>();
+builder.Services.AddScoped<IReportTakerEmployeeRepository, ReportTakerEmployeeRepository>();
+
+
 builder.Services.AddScoped<ISettingRepository, SettingRepositories>();
 
 

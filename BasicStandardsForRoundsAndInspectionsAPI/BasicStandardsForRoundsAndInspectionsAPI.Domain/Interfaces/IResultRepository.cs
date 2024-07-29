@@ -12,11 +12,11 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Domain.Interfaces
 {
     public interface IResultRepository
     {
-        IEnumerable<IndexResultDTO> GetResults();
-        IEnumerable<IndexResultDTO> GetResultsByHospitalId(int hospitalId);
-        IEnumerable<IndexResultDTO> GetResultsByReportTakerId(int employeeId);
-        IEnumerable<IndexResultDTO> GetResultsByDate(DateTime date);
-        Result CreateResult(CreateResultDTO createResultDTO);
+        IEnumerable<IndexReportDTO> GetReports();
+        IEnumerable<IndexReportDTO> GetResultsByHospitalId(int hospitalId);
+        IEnumerable<IndexReportDTO> GetResultsByReportTakerId(int employeeId);
+        IEnumerable<IndexReportDTO> GetResultsByDate(DateTime date);
+        IEnumerable<Result> CreateResults(IEnumerable<CreateResultDTO> createResultDTOs);
         Result EditResult(EditResultDTO editedResultDTO);
         bool DeleteResult(DeleteResultDTO deletedResultDTO);
 

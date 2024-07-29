@@ -17,40 +17,42 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Controllers
         {
             _resultRepository = resultRepository;
         }
-        [HttpGet("GetResults")]
-        public IActionResult GetResults()
+        [HttpGet("GetReports")]
+        public IActionResult GetReports()
         {
-            var allResults = _resultRepository.GetResults();
+            var allResults = _resultRepository.GetReports();
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
             return Ok(allResults);
         }
 
         [HttpGet("GetResultsByHospitalId/{hospitalId}")]
-        public IEnumerable<IndexResultDTO> GetResultsByHospitalId(int hospitalId)
+        public IEnumerable<IndexReportDTO> GetResultsByHospitalId(int hospitalId)
         {
             var resultsByHospitalId = _resultRepository.GetResultsByHospitalId(hospitalId);
             return resultsByHospitalId;
         }
 
         [HttpGet("GetResultsByReportTakerId/{employeeId}")]
-        public IEnumerable<IndexResultDTO> GetResultsByReportTakerId(int employeeId)
+        public IEnumerable<IndexReportDTO> GetResultsByReportTakerId(int employeeId)
         {
             var resultsByReportTakerId = _resultRepository.GetResultsByReportTakerId(employeeId);
             return resultsByReportTakerId;
         }
         [HttpGet("GetResultsByDate/{date}")]
-        public IEnumerable<IndexResultDTO> GetResultsByDate(DateTime date)
+        public IEnumerable<IndexReportDTO> GetResultsByDate(DateTime date)
         {
             var resultsByDate = _resultRepository.GetResultsByDate(date);
             return resultsByDate;
         }
 
         [HttpPost]
-        [Route("CreateResult")]
-        public IActionResult CreateResult(CreateResultDTO createResultDTO)
+        [Route("CreateResults")]
+        public IActionResult CreateResults(IEnumerable<CreateResultDTO> createResultDTO)
         {
-            var result = _resultRepository.CreateResult(createResultDTO);
+            var result = _resultRepository.CreateResults (createResultDTO);
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
             return Ok(result);
         }
 

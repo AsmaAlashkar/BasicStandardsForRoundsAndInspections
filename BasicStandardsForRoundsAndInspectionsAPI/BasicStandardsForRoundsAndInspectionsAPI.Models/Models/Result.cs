@@ -15,5 +15,8 @@ public partial class Result
 
     public string? ResultValue { get; set; }
     public string? Comment { get; set; }
+    // Navigation properties
+    public Hospital Hospital { get; set; }
+    public Employee? ReportTaker { get; set; }
 
 }

@@ -6,23 +6,17 @@ using System.Threading.Tasks;
 
 namespace BasicStandardsForRoundsAndInspectionsAPI.ViewModels.ViewModels.ResultDTO
 {
-    public class IndexResultDTO
+    public class IndexResultsOfReportDTO
     {
         public int HospitalId { get; set; }
-        public string? HospitalName { get; set; }
-        public string? HospitalNameAr { get; set; }
+
         public DateTime ReportDate { get; set; }
+
         public int? ReportTakerId { get; set; }
-        public string? ReportTakerName { get; set; }
+
         public int SubstandardId { get; set; }
-        public string? SubstandardName { get; set; }
-        public string? SubstandardNameAr { get; set; }
-        public int MainStandardId { get; set; } 
-        public string? MainStandardName { get; set; } 
-        public string? MainStandardNameAr { get; set; }
+
         public string? ResultValue { get; set; }
         public string? Comment { get; set; }
-
-
     }
 }
