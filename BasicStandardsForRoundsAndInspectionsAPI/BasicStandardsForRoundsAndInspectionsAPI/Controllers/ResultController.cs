@@ -25,25 +25,13 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Controllers
                 return BadRequest(ModelState);
             return Ok(allResults);
         }
-
-        [HttpGet("GetResultsByHospitalId/{hospitalId}")]
-        public IEnumerable<IndexReportDTO> GetResultsByHospitalId(int hospitalId)
+        [HttpGet("GetResultsOfReport/{hospitalId}/{reportDate}")]
+        public IActionResult GetResultsOfReport(int hospitalId, DateTime reportDate)
         {
-            var resultsByHospitalId = _resultRepository.GetResultsByHospitalId(hospitalId);
-            return resultsByHospitalId;
-        }
-
-        [HttpGet("GetResultsByReportTakerId/{employeeId}")]
-        public IEnumerable<IndexReportDTO> GetResultsByReportTakerId(int employeeId)
-        {
-            var resultsByReportTakerId = _resultRepository.GetResultsByReportTakerId(employeeId);
-            return resultsByReportTakerId;
-        }
-        [HttpGet("GetResultsByDate/{date}")]
-        public IEnumerable<IndexReportDTO> GetResultsByDate(DateTime date)
-        {
-            var resultsByDate = _resultRepository.GetResultsByDate(date);
-            return resultsByDate;
+            var allResults = _resultRepository.GetResultsOfReport(hospitalId,reportDate);
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+            return Ok(allResults);
         }
 
         [HttpPost]
@@ -57,11 +45,11 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Controllers
         }
 
         [HttpPut]
-        [Route("EditResult")]
-        public IActionResult EditResult(EditResultDTO editedResultDTO)
+        [Route("EditResults")]
+        public IActionResult EditResults(IEnumerable<EditResultDTO> editedResultDTOs)
         {
-            var editedResult = _resultRepository.EditResult(editedResultDTO);
-            return Ok(editedResult);
+            var editedResults = _resultRepository.EditResults(editedResultDTOs);
+            return Ok(editedResults);
         }
 
         [HttpDelete("DeleteResult")]
@@ -77,6 +65,25 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Controllers
                 return NotFound(false);
             }
         }
+        //[HttpGet("GetResultsByHospitalId/{hospitalId}")]
+        //public IEnumerable<IndexReportDTO> GetResultsByHospitalId(int hospitalId)
+        //{
+        //    var resultsByHospitalId = _resultRepository.GetResultsByHospitalId(hospitalId);
+        //    return resultsByHospitalId;
+        //}
+
+        //[HttpGet("GetResultsByReportTakerId/{employeeId}")]
+        //public IEnumerable<IndexReportDTO> GetResultsByReportTakerId(int employeeId)
+        //{
+        //    var resultsByReportTakerId = _resultRepository.GetResultsByReportTakerId(employeeId);
+        //    return resultsByReportTakerId;
+        //}
+        //[HttpGet("GetResultsByDate/{date}")]
+        //public IEnumerable<IndexReportDTO> GetResultsByDate(DateTime date)
+        //{
+        //    var resultsByDate = _resultRepository.GetResultsByDate(date);
+        //    return resultsByDate;
+        //}
 
     }
 }

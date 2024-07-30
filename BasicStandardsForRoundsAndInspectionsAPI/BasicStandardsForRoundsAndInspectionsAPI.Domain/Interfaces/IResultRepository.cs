@@ -13,12 +13,13 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Domain.Interfaces
     public interface IResultRepository
     {
         IEnumerable<IndexReportDTO> GetReports();
-        IEnumerable<IndexReportDTO> GetResultsByHospitalId(int hospitalId);
-        IEnumerable<IndexReportDTO> GetResultsByReportTakerId(int employeeId);
-        IEnumerable<IndexReportDTO> GetResultsByDate(DateTime date);
-        IEnumerable<Result> CreateResults(IEnumerable<CreateResultDTO> createResultDTOs);
-        Result EditResult(EditResultDTO editedResultDTO);
-        bool DeleteResult(DeleteResultDTO deletedResultDTO);
+        IEnumerable<IndexResultsOfReportDTO> GetResultsOfReport(int hospitalId, DateTime reportDate);
 
+        IEnumerable<Result> CreateResults(IEnumerable<CreateResultDTO> createResultDTOs);
+        IEnumerable<Result> EditResults(IEnumerable<EditResultDTO> editedResultDTOs);
+        bool DeleteResult(DeleteResultDTO deletedResultDTO);
+        //IEnumerable<IndexReportDTO> GetResultsByHospitalId(int hospitalId);
+        //IEnumerable<IndexReportDTO> GetResultsByReportTakerId(int employeeId);
+        //IEnumerable<IndexReportDTO> GetResultsByDate(DateTime date);
     }
 }

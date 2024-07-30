@@ -2,6 +2,7 @@
 using BasicStandardsForRoundsAndInspectionsAPI.Models;
 using BasicStandardsForRoundsAndInspectionsAPI.Models.Models;
 using BasicStandardsForRoundsAndInspectionsAPI.ViewModels.ViewModels.ResultDTO;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,39 +34,55 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Domain.Repository
 
             return reports.ToList();
         }
-
-        public IEnumerable<IndexReportDTO> GetResultsByDate(DateTime date)
+        public IEnumerable<IndexResultsOfReportDTO> GetResultsOfReport(int hospitalId, DateTime reportDate)
         {
-            return _context.Results.Where(rd => rd.ReportDate == date).ToList().Select(item => new IndexReportDTO
-            {
-                HospitalId = item.HospitalId,
-                ReportDate = item.ReportDate,
-                ReportTakerId = item.ReportTakerId,
-               
-            });
+            var results = _context.Results
+                .Where(r => r.HospitalId == hospitalId && r.ReportDate == reportDate)
+                .Include(r => r.Hospital)
+                .Include(r => r.ReportTaker)
+                .ToList();
+
+            var substandardIds = results.Select(r => r.SubstandardId).Distinct().ToList();
+            var substandards = _context.SubStandards
+                .Where(s => substandardIds.Contains(s.Id))
+                .Include(s => s.MainStandard)
+                .ToList();
+
+            var substandardDict = substandards.ToDictionary(s => s.Id);
+            var mainStandardDict = substandards
+                .GroupBy(s => s.MainStandardId)
+                .ToDictionary(g => g.Key, g => g.First().MainStandard);
+
+            var groupedResults = results
+                .GroupBy(r => new { r.HospitalId, r.ReportDate, r.ReportTakerId, ReportTakerName = r.ReportTaker?.Name })
+                .Select(g => new IndexResultsOfReportDTO
+                {
+                    HospitalId = g.Key.HospitalId,
+                    HospitalName = g.First().Hospital?.Name,
+                    HospitalNameAr = g.First().Hospital?.NameAr,
+                    ReportDate = g.Key.ReportDate,
+                    ReportTakerId = g.Key.ReportTakerId,
+                    ReportTakerName = g.Key.ReportTakerName,
+                    MainStandards = g
+                        .GroupBy(r => substandardDict[r.SubstandardId].MainStandardId)
+                        .Select(mg => new MainStandardResultDTO
+                        {
+                            Title = mainStandardDict[mg.Key].Title,
+                            TitleAr = mainStandardDict[mg.Key].TitleAr,
+                            Substandards = mg
+                                .Select(r => new SubstandardResultDTO
+                                {
+                                    Description = substandardDict[r.SubstandardId].Description,
+                                    DescriptionAr = substandardDict[r.SubstandardId].DescriptionAr,
+                                    ResultValue = r.ResultValue,
+                                    Comment = r.Comment
+                                }).ToList()
+                        }).ToList()
+                }).ToList();
+
+            return groupedResults;
         }
 
-        public IEnumerable<IndexReportDTO> GetResultsByReportTakerId(int employeeId)
-        {
-            return _context.Results.Where(rd => rd.ReportTakerId == employeeId).ToList().Select(item => new IndexReportDTO
-            {
-                HospitalId = item.HospitalId,
-                ReportDate = item.ReportDate,
-                ReportTakerId = item.ReportTakerId,
-               
-            });
-        }
-
-        public IEnumerable<IndexReportDTO> GetResultsByHospitalId(int hospitalId)
-        {
-            return _context.Results.Where(rd => rd.HospitalId == hospitalId).ToList().Select(item => new IndexReportDTO
-            {
-                HospitalId = item.HospitalId,
-                ReportDate = item.ReportDate,
-                ReportTakerId = item.ReportTakerId,
-              
-            });
-        }
         public IEnumerable<Result> CreateResults(IEnumerable<CreateResultDTO> createResultDTOs)
         {
             var resultsToAdd = new List<Result>();
@@ -109,23 +126,34 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Domain.Repository
             return resultsToAdd;
         }
 
-        public Result EditResult(EditResultDTO editedResultDTO)
+        public IEnumerable<Result> EditResults(IEnumerable<EditResultDTO> editedResultDTOs)
         {
-            var result = _context.Results.FirstOrDefault(x =>
-            x.HospitalId == editedResultDTO.HospitalId &&
-            x.ReportDate == editedResultDTO.ReportDate &&
-            x.SubstandardId == editedResultDTO.SubstandardId);
+            var resultsToEdit = new List<Result>();
 
-            if (result == null)
+            foreach (var editResultDTO in editedResultDTOs)
             {
-                throw new KeyNotFoundException("Result not found.");
+                var existingResult = _context.Results
+                    .FirstOrDefault(x => x.HospitalId == editResultDTO.HospitalId
+                                      && x.ReportDate.Date == editResultDTO.ReportDate.Date
+                                      && x.ReportTakerId == editResultDTO.ReportTakerId
+                                      && x.SubstandardId == editResultDTO.SubstandardId);
+
+                if (existingResult != null)
+                {
+                    existingResult.ResultValue = editResultDTO.ResultValue;
+                    existingResult.Comment = editResultDTO.Comment;
+
+                    resultsToEdit.Add(existingResult);
+                }
             }
 
-            result.ResultValue = editedResultDTO.ResultValue;
-            result.Comment = editedResultDTO.Comment;
+            if (resultsToEdit.Any())
+            {
+                _context.Results.UpdateRange(resultsToEdit);
+                _context.SaveChanges();
+            }
 
-            _context.SaveChanges();
-            return result;
+            return resultsToEdit;
         }
 
         public bool DeleteResult(DeleteResultDTO deletedResultDTO)
@@ -144,6 +172,38 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Domain.Repository
             _context.SaveChanges();
             return true;
         }
+        //public IEnumerable<IndexReportDTO> GetResultsByDate(DateTime date)
+        //{
+        //    return _context.Results.Where(rd => rd.ReportDate == date).ToList().Select(item => new IndexReportDTO
+        //    {
+        //        HospitalId = item.HospitalId,
+        //        ReportDate = item.ReportDate,
+        //        ReportTakerId = item.ReportTakerId,
 
-        }
+        //    });
+        //}
+
+        //public IEnumerable<IndexReportDTO> GetResultsByReportTakerId(int employeeId)
+        //{
+        //    return _context.Results.Where(rd => rd.ReportTakerId == employeeId).ToList().Select(item => new IndexReportDTO
+        //    {
+        //        HospitalId = item.HospitalId,
+        //        ReportDate = item.ReportDate,
+        //        ReportTakerId = item.ReportTakerId,
+
+        //    });
+        //}
+
+        //public IEnumerable<IndexReportDTO> GetResultsByHospitalId(int hospitalId)
+        //{
+        //    return _context.Results.Where(rd => rd.HospitalId == hospitalId).ToList().Select(item => new IndexReportDTO
+        //    {
+        //        HospitalId = item.HospitalId,
+        //        ReportDate = item.ReportDate,
+        //        ReportTakerId = item.ReportTakerId,
+
+        //    });
+        //}
+
+    }
 }

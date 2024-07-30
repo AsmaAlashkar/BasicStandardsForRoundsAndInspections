@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BasicStandardsForRoundsAndInspectionsAPI.ViewModels.ViewModels.MainstandardDTO;
+using BasicStandardsForRoundsAndInspectionsAPI.ViewModels.ViewModels.SubStandardDTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,14 +11,12 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.ViewModels.ViewModels.ResultD
     public class IndexResultsOfReportDTO
     {
         public int HospitalId { get; set; }
-
+        public string? HospitalName { get; set; }
+        public string? HospitalNameAr { get; set; }
         public DateTime ReportDate { get; set; }
-
         public int? ReportTakerId { get; set; }
+        public string? ReportTakerName { get; set; }
+        public List<MainStandardResultDTO>? MainStandards { get; set; }
 
-        public int SubstandardId { get; set; }
-
-        public string? ResultValue { get; set; }
-        public string? Comment { get; set; }
     }
 }
