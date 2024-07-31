@@ -52,10 +52,10 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Controllers
             return Ok(editedResults);
         }
 
-        [HttpDelete("DeleteResult")]
-        public IActionResult DeleteResult(DeleteResultDTO deletedResultDTO)
+        [HttpDelete("DeleteResults/{hospitalId}/{reportDate}")]
+        public IActionResult DeleteResults(int hospitalId, DateTime reportDate)
         {
-            bool isDeleted = _resultRepository.DeleteResult(deletedResultDTO);
+            bool isDeleted = _resultRepository.DeleteResults(hospitalId,reportDate);
             if (isDeleted)
             {
                 return Ok(true);

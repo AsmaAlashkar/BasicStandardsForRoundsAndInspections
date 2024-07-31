@@ -135,7 +135,6 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Domain.Repository
                 var existingResult = _context.Results
                     .FirstOrDefault(x => x.HospitalId == editResultDTO.HospitalId
                                       && x.ReportDate.Date == editResultDTO.ReportDate.Date
-                                      && x.ReportTakerId == editResultDTO.ReportTakerId
                                       && x.SubstandardId == editResultDTO.SubstandardId);
 
                 if (existingResult != null)
@@ -156,22 +155,21 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Domain.Repository
             return resultsToEdit;
         }
 
-        public bool DeleteResult(DeleteResultDTO deletedResultDTO)
+        public bool DeleteResults(int hospitalId, DateTime reportDate)
         {
-            var result = _context.Results.FirstOrDefault(x =>
-            x.HospitalId == deletedResultDTO.HospitalId &&
-            x.ReportDate == deletedResultDTO.ReportDate &&
-            x.SubstandardId == deletedResultDTO.SubstandardId);
-
-            if (result == null)
+            var resultsToDelete = _context.Results
+                            .Where(x => x.HospitalId == hospitalId && x.ReportDate.Date == reportDate.Date)
+                            .ToList();
+            if (resultsToDelete.Any())
             {
-                return false;
+                _context.Results.RemoveRange(resultsToDelete);
+                _context.SaveChanges();
+                return true;
             }
 
-            _context.Results.Remove(result);
-            _context.SaveChanges();
-            return true;
+            return false;
         }
+
         //public IEnumerable<IndexReportDTO> GetResultsByDate(DateTime date)
         //{
         //    return _context.Results.Where(rd => rd.ReportDate == date).ToList().Select(item => new IndexReportDTO

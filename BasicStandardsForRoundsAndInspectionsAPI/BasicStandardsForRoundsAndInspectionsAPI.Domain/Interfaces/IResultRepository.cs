@@ -17,7 +17,7 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Domain.Interfaces
 
         IEnumerable<Result> CreateResults(IEnumerable<CreateResultDTO> createResultDTOs);
         IEnumerable<Result> EditResults(IEnumerable<EditResultDTO> editedResultDTOs);
-        bool DeleteResult(DeleteResultDTO deletedResultDTO);
+        bool DeleteResults(int hospitalId, DateTime reportDate);
         //IEnumerable<IndexReportDTO> GetResultsByHospitalId(int hospitalId);
         //IEnumerable<IndexReportDTO> GetResultsByReportTakerId(int employeeId);
         //IEnumerable<IndexReportDTO> GetResultsByDate(DateTime date);
