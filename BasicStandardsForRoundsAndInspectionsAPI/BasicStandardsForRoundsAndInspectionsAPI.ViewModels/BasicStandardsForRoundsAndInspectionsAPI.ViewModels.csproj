@@ -1,15 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
-    <Reference Include="BasicStandardsForRoundsAndInspectionsAPI.Models">
-      <HintPath>..\BasicStandardsForRoundsAndInspectionsAPI.Models\bin\Debug\net8.0\BasicStandardsForRoundsAndInspectionsAPI.Models.dll</HintPath>
-    </Reference>
+    <ProjectReference Include="..\BasicStandardsForRoundsAndInspectionsAPI.Models\BasicStandardsForRoundsAndInspectionsAPI.Models.csproj" />
   </ItemGroup>
 
 </Project>
