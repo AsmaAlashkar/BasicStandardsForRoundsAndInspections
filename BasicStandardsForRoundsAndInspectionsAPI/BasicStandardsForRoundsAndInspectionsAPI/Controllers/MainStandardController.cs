@@ -47,10 +47,10 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Controllers
         }
         [HttpPost("CreateMainStandard")]
 
-        public IActionResult CreateMainStandard(CreateMainStandardDTO createMainStandardDTO)
+        public int CreateMainStandard(CreateMainStandardDTO createMainStandardDTO)
         {
-            var newMainStandard = _mainStandardRepository.CreateMainStandard(createMainStandardDTO);
-            return Ok(newMainStandard);
+            var newMainStandardId = _mainStandardRepository.CreateMainStandard(createMainStandardDTO);
+            return newMainStandardId;
         }
         [HttpDelete("DeleteMainStandard/{id}")]
         public IActionResult DeleteMainStandard(int id)

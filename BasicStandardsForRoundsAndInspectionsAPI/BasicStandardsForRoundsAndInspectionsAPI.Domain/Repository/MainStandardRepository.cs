@@ -51,7 +51,7 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Domain.Repository
         }
 
 
-        public MainStandard CreateMainStandard(CreateMainStandardDTO create)
+        public int CreateMainStandard(CreateMainStandardDTO create)
         {
             var newMainStandard = new MainStandard
             {
@@ -61,7 +61,7 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Domain.Repository
             };
             _context.Add(newMainStandard);
             _context.SaveChanges();
-            return newMainStandard;
+            return newMainStandard.Id;
         }
 
         public bool DeleteById(int id)

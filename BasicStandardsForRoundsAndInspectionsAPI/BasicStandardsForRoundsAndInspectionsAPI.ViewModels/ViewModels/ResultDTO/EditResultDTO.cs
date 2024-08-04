@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BasicStandardsForRoundsAndInspectionsAPI.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,7 +19,7 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.ViewModels.ViewModels.ResultD
 
         public string? ResultValue { get; set; }
         public string? Comment { get; set; }
-
+        public virtual SubStandard? SubStandard { get; set; }
 
     }
 }

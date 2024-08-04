@@ -11,7 +11,7 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Models
         public string? Description { get; set; }
         public string? DescriptionAr { get; set; }
 
-        [MaxLength(3)]
+        [MaxLength(5)]
         public string? Code { get; set; }
         public int ResultTypeId { get; set; }
         public ResultType? ResultType { get; set; }

@@ -40,18 +40,9 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Domain.Repository
                 .Where(r => r.HospitalId == hospitalId && r.ReportDate == reportDate)
                 .Include(r => r.Hospital)
                 .Include(r => r.ReportTaker)
+                .Include(r => r.SubStandard)
+                .ThenInclude(s => s.MainStandard)
                 .ToList();
-
-            var substandardIds = results.Select(r => r.SubstandardId).Distinct().ToList();
-            var substandards = _context.SubStandards
-                .Where(s => substandardIds.Contains(s.Id))
-                .Include(s => s.MainStandard)
-                .ToList();
-
-            var substandardDict = substandards.ToDictionary(s => s.Id);
-            var mainStandardDict = substandards
-                .GroupBy(s => s.MainStandardId)
-                .ToDictionary(g => g.Key, g => g.First().MainStandard);
 
             var groupedResults = results
                 .GroupBy(r => new { r.HospitalId, r.ReportDate, r.ReportTakerId, ReportTakerName = r.ReportTaker?.Name })
@@ -64,18 +55,19 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Domain.Repository
                     ReportTakerId = g.Key.ReportTakerId,
                     ReportTakerName = g.Key.ReportTakerName,
                     MainStandards = g
-                        .GroupBy(r => substandardDict[r.SubstandardId].MainStandardId)
+                        .GroupBy(r => r.SubStandard.MainStandardId)
                         .Select(mg => new MainStandardResultDTO
                         {
-                            Title = mainStandardDict[mg.Key].Title,
-                            TitleAr = mainStandardDict[mg.Key].TitleAr,
+                            Title = mg.First().SubStandard.MainStandard.Title,
+                            TitleAr = mg.First().SubStandard.MainStandard.TitleAr,
                             Substandards = mg
                                 .Select(r => new SubstandardResultDTO
                                 {
-                                    Description = substandardDict[r.SubstandardId].Description,
-                                    DescriptionAr = substandardDict[r.SubstandardId].DescriptionAr,
+                                    Description = r.SubStandard.Description,
+                                    DescriptionAr = r.SubStandard.DescriptionAr,
                                     ResultValue = r.ResultValue,
-                                    Comment = r.Comment
+                                    Comment = r.Comment,
+                                    ResultTypeId = r.SubStandard.ResultTypeId  
                                 }).ToList()
                         }).ToList()
                 }).ToList();

@@ -13,7 +13,7 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Domain.Interfaces
         IEnumerable<MainStandard> GetMainStandards();
         IndexMainStandardDTO GetById(int id);
         MainStandard EditById(int id, EditMainStandardDTO editedMainStandardDTO);
-        MainStandard CreateMainStandard (CreateMainStandardDTO create);
+        int CreateMainStandard (CreateMainStandardDTO create);
         bool DeleteById(int id);
         public bool HasSubStandards(int id);
     }

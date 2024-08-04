@@ -12,5 +12,6 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.ViewModels.ViewModels.ResultD
         public string? DescriptionAr { get; set; }
         public string? ResultValue { get; set; }
         public string? Comment { get; set; }
+        public int ResultTypeId { get; set; }
     }
 }
