@@ -8,6 +8,7 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.ViewModels.ViewModels.ResultD
 {
     public class SubstandardResultDTO
     {
+        public int Id { get; set; }
         public string? Description { get; set; }
         public string? DescriptionAr { get; set; }
         public string? ResultValue { get; set; }

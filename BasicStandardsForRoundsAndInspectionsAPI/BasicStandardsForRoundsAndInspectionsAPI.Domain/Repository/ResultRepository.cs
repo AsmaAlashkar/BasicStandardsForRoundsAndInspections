@@ -63,6 +63,7 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Domain.Repository
                             Substandards = mg
                                 .Select(r => new SubstandardResultDTO
                                 {
+                                    Id = r.SubstandardId,
                                     Description = r.SubStandard.Description,
                                     DescriptionAr = r.SubStandard.DescriptionAr,
                                     ResultValue = r.ResultValue,

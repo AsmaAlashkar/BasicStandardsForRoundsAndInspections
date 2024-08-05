@@ -29,8 +29,7 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Controllers
         public IActionResult GetResultsOfReport(int hospitalId, DateTime reportDate)
         {
             var allResults = _resultRepository.GetResultsOfReport(hospitalId,reportDate);
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
+      
             return Ok(allResults);
         }
 
