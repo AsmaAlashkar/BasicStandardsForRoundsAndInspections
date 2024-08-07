@@ -19,7 +19,7 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.ViewModels.ViewModels.ResultD
 
         public string? ResultValue { get; set; }
         public string? Comment { get; set; }
-        public virtual SubStandard? SubStandard { get; set; }
+       // public virtual SubStandard? SubStandard { get; set; }
 
     }
 }

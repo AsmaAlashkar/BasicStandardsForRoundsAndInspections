@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BasicStandardsForRoundsAndInspectionsAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3b81144d92451c110551b04efcd695a195736bae")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+467c91cd48b4d843dae8c0ec7e9e9ad941cbe21d")]
 [assembly: System.Reflection.AssemblyProductAttribute("BasicStandardsForRoundsAndInspectionsAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BasicStandardsForRoundsAndInspectionsAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

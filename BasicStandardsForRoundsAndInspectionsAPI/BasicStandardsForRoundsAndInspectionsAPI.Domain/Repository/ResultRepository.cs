@@ -118,7 +118,6 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Domain.Repository
 
             return resultsToAdd;
         }
-
         public IEnumerable<Result> EditResults(IEnumerable<EditResultDTO> editedResultDTOs)
         {
             var resultsToEdit = new List<Result>();
