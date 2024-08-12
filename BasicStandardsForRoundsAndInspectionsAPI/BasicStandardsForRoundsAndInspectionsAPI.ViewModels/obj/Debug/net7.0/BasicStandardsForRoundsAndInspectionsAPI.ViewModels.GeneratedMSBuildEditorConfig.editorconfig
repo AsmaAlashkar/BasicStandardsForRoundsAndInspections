@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = BasicStandardsForRoundsAndInspectionsAPI.ViewModels
-build_property.ProjectDir = C:\Users\Dev010\Documents\BasicStandardsForRoundsAndInspections\BasicStandardsForRoundsAndInspectionsAPI\BasicStandardsForRoundsAndInspectionsAPI.ViewModels\
+build_property.ProjectDir = E:\BasicStandardsForRoundsAndInspections\BasicStandardsForRoundsAndInspectionsAPI\BasicStandardsForRoundsAndInspectionsAPI.ViewModels\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

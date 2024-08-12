@@ -9,6 +9,7 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.ViewModels.ViewModels.ResultD
 {
     public class EditResultDTO
     {
+        public int Id { get; set; }
         public int HospitalId { get; set; }
 
         public DateTime ReportDate { get; set; }
@@ -19,7 +20,6 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.ViewModels.ViewModels.ResultD
 
         public string? ResultValue { get; set; }
         public string? Comment { get; set; }
-       // public virtual SubStandard? SubStandard { get; set; }
 
     }
 }

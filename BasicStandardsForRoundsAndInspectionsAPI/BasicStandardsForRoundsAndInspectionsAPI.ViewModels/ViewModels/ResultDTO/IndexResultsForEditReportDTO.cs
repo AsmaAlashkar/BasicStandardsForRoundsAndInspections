@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace BasicStandardsForRoundsAndInspectionsAPI.ViewModels.ViewModels.ResultDTO
 {
-    public class DeleteResultDTO
+    public class IndexResultsForEditReportDTO
     {
-        public int Id { get; set; }
         public int HospitalId { get; set; }
         public DateTime ReportDate { get; set; }
-        public int SubstandardId { get; set; }
+        public int? ReportTakerId { get; set; }
+        public List<MainStandardResultDTO>? MainStandards { get; set; }
     }
 }

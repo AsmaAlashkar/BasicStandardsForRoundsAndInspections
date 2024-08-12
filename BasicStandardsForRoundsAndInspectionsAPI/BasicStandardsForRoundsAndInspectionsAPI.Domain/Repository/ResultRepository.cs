@@ -78,9 +78,12 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Domain.Repository
 
         public IEnumerable<Result> CreateResults(IEnumerable<CreateResultDTO> createResultDTOs)
         {
+
             var resultsToAdd = new List<Result>();
             foreach (var createResultDTO in createResultDTOs)
             {
+                createResultDTO.ReportDate = DateTime.SpecifyKind(createResultDTO.ReportDate, DateTimeKind.Utc);
+
                 var subStandardExists = _context.SubStandards.Any(x => x.Id == createResultDTO.SubstandardId);
                 var hospitalExists = _context.Hospitals.Any(x => x.Id == createResultDTO.HospitalId);
                 var reportTakerExists = createResultDTO.ReportTakerId.HasValue
@@ -118,33 +121,58 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Domain.Repository
 
             return resultsToAdd;
         }
-        public IEnumerable<Result> EditResults(IEnumerable<EditResultDTO> editedResultDTOs)
+        public IEnumerable<IndexResultsForEditReportDTO> GetResultsForEditReport(int hospitalId, DateTime reportDate)
         {
-            var resultsToEdit = new List<Result>();
-
-            foreach (var editResultDTO in editedResultDTOs)
-            {
-                var existingResult = _context.Results
-                    .FirstOrDefault(x => x.HospitalId == editResultDTO.HospitalId
-                                      && x.ReportDate.Date == editResultDTO.ReportDate.Date
-                                      && x.SubstandardId == editResultDTO.SubstandardId);
-
-                if (existingResult != null)
+            var results = _context.Results
+        .Where(r => r.HospitalId == hospitalId && r.ReportDate == reportDate)
+        .GroupBy(r => r.HospitalId)
+        .Select(g => new IndexResultsForEditReportDTO
+        {
+            HospitalId = g.Key,
+            ReportDate = g.FirstOrDefault().ReportDate,
+            ReportTakerId = g.FirstOrDefault().ReportTakerId,
+            MainStandards = g
+                .GroupBy(r => r.SubStandard.MainStandardId)
+                .Select(ms => new MainStandardResultDTO
                 {
-                    existingResult.ResultValue = editResultDTO.ResultValue;
-                    existingResult.Comment = editResultDTO.Comment;
+                    
+                    Title = ms.FirstOrDefault().SubStandard.MainStandard.Title,
+                    TitleAr = ms.FirstOrDefault().SubStandard.MainStandard.TitleAr,
+                    Substandards = ms.Select(ss => new SubstandardResultDTO
+                    {
+                        Id = ss.Id,
+                        SubstandardId = ss.SubstandardId,
+                        Description = ss.SubStandard.Description,
+                        DescriptionAr = ss.SubStandard.DescriptionAr,
+                        ResultValue = ss.ResultValue,
+                        Comment = ss.Comment,
+                        ResultTypeId = ss.SubStandard.ResultTypeId
+                    }).ToList()
+                }).ToList()
+        })
+        .ToList();
 
-                    resultsToEdit.Add(existingResult);
+            return results;
+        }
+        public IEnumerable<Result> EditResults(IEnumerable<EditResultDTO> editedResultDTOs, int hospitalId, DateTime reportDate)
+        {
+            var existingResults = _context.Results
+                            .Where(r => r.HospitalId == hospitalId && r.ReportDate == reportDate)
+                            .ToList();
+            foreach (var result in existingResults)
+            {
+                var dto = editedResultDTOs.FirstOrDefault(e => e.Id == result.Id);
+                if (dto != null)
+                {
+                    result.HospitalId = dto.HospitalId;
+                    result.ReportDate = dto.ReportDate;
+                    result.ReportTakerId = dto.ReportTakerId;
+                    result.ResultValue = dto.ResultValue;
+                    result.Comment = dto.Comment;
                 }
             }
-
-            if (resultsToEdit.Any())
-            {
-                _context.Results.UpdateRange(resultsToEdit);
-                _context.SaveChanges();
-            }
-
-            return resultsToEdit;
+            _context.SaveChanges();
+            return existingResults;           
         }
 
         public bool DeleteResults(int hospitalId, DateTime reportDate)
@@ -161,39 +189,5 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Domain.Repository
 
             return false;
         }
-
-        //public IEnumerable<IndexReportDTO> GetResultsByDate(DateTime date)
-        //{
-        //    return _context.Results.Where(rd => rd.ReportDate == date).ToList().Select(item => new IndexReportDTO
-        //    {
-        //        HospitalId = item.HospitalId,
-        //        ReportDate = item.ReportDate,
-        //        ReportTakerId = item.ReportTakerId,
-
-        //    });
-        //}
-
-        //public IEnumerable<IndexReportDTO> GetResultsByReportTakerId(int employeeId)
-        //{
-        //    return _context.Results.Where(rd => rd.ReportTakerId == employeeId).ToList().Select(item => new IndexReportDTO
-        //    {
-        //        HospitalId = item.HospitalId,
-        //        ReportDate = item.ReportDate,
-        //        ReportTakerId = item.ReportTakerId,
-
-        //    });
-        //}
-
-        //public IEnumerable<IndexReportDTO> GetResultsByHospitalId(int hospitalId)
-        //{
-        //    return _context.Results.Where(rd => rd.HospitalId == hospitalId).ToList().Select(item => new IndexReportDTO
-        //    {
-        //        HospitalId = item.HospitalId,
-        //        ReportDate = item.ReportDate,
-        //        ReportTakerId = item.ReportTakerId,
-
-        //    });
-        //}
-
     }
 }

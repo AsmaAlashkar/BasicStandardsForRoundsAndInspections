@@ -8,7 +8,7 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.ViewModels.ViewModels.ResultD
 {
     public class CreateResultDTO
     {
-
+        public int Id { get; set; }
         public int HospitalId { get; set; }
         public DateTime ReportDate { get; set; }
         public int SubstandardId { get; set; }

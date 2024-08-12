@@ -42,12 +42,18 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Controllers
                 return BadRequest(ModelState);
             return Ok(result);
         }
+        [HttpGet("GetResultsForEditReport/{hospitalId}/{reportDate}")]
+        public IActionResult GetResultsForEditReport(int hospitalId, DateTime reportDate)
+        {
+            var resultsForEditReport = _resultRepository.GetResultsForEditReport(hospitalId,reportDate);
+            return Ok(resultsForEditReport);
+        }
 
         [HttpPut]
-        [Route("EditResults")]
-        public IActionResult EditResults(IEnumerable<EditResultDTO> editedResultDTOs)
+        [Route("EditResults/{hospitalId}/{reportDate}")]
+        public IActionResult EditResults(IEnumerable<EditResultDTO> editedResultDTOs, int hospitalId, DateTime reportDate)
         {
-            var editedResults = _resultRepository.EditResults(editedResultDTOs);
+            var editedResults = _resultRepository.EditResults(editedResultDTOs, hospitalId, reportDate);
             return Ok(editedResults);
         }
 
@@ -64,25 +70,5 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Controllers
                 return NotFound(false);
             }
         }
-        //[HttpGet("GetResultsByHospitalId/{hospitalId}")]
-        //public IEnumerable<IndexReportDTO> GetResultsByHospitalId(int hospitalId)
-        //{
-        //    var resultsByHospitalId = _resultRepository.GetResultsByHospitalId(hospitalId);
-        //    return resultsByHospitalId;
-        //}
-
-        //[HttpGet("GetResultsByReportTakerId/{employeeId}")]
-        //public IEnumerable<IndexReportDTO> GetResultsByReportTakerId(int employeeId)
-        //{
-        //    var resultsByReportTakerId = _resultRepository.GetResultsByReportTakerId(employeeId);
-        //    return resultsByReportTakerId;
-        //}
-        //[HttpGet("GetResultsByDate/{date}")]
-        //public IEnumerable<IndexReportDTO> GetResultsByDate(DateTime date)
-        //{
-        //    var resultsByDate = _resultRepository.GetResultsByDate(date);
-        //    return resultsByDate;
-        //}
-
     }
 }

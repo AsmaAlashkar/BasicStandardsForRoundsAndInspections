@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Dev010\\Documents\\BasicStandardsForRoundsAndInspections\\BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI.Domain\\BasicStandardsForRoundsAndInspectionsAPI.Domain.csproj": {}
+    "E:\\BasicStandardsForRoundsAndInspections\\BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI.Domain\\BasicStandardsForRoundsAndInspectionsAPI.Domain.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Dev010\\Documents\\BasicStandardsForRoundsAndInspections\\BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI.Domain\\BasicStandardsForRoundsAndInspectionsAPI.Domain.csproj": {
+    "E:\\BasicStandardsForRoundsAndInspections\\BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI.Domain\\BasicStandardsForRoundsAndInspectionsAPI.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Dev010\\Documents\\BasicStandardsForRoundsAndInspections\\BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI.Domain\\BasicStandardsForRoundsAndInspectionsAPI.Domain.csproj",
+        "projectUniqueName": "E:\\BasicStandardsForRoundsAndInspections\\BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI.Domain\\BasicStandardsForRoundsAndInspectionsAPI.Domain.csproj",
         "projectName": "BasicStandardsForRoundsAndInspectionsAPI.Domain",
-        "projectPath": "C:\\Users\\Dev010\\Documents\\BasicStandardsForRoundsAndInspections\\BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI.Domain\\BasicStandardsForRoundsAndInspectionsAPI.Domain.csproj",
+        "projectPath": "E:\\BasicStandardsForRoundsAndInspections\\BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI.Domain\\BasicStandardsForRoundsAndInspectionsAPI.Domain.csproj",
         "packagesPath": "C:\\Users\\Dev010\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Dev010\\Documents\\BasicStandardsForRoundsAndInspections\\BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI.Domain\\obj\\",
+        "outputPath": "E:\\BasicStandardsForRoundsAndInspections\\BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -33,11 +33,11 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\Dev010\\Documents\\BasicStandardsForRoundsAndInspections\\BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI.Models\\BasicStandardsForRoundsAndInspectionsAPI.Models.csproj": {
-                "projectPath": "C:\\Users\\Dev010\\Documents\\BasicStandardsForRoundsAndInspections\\BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI.Models\\BasicStandardsForRoundsAndInspectionsAPI.Models.csproj"
+              "E:\\BasicStandardsForRoundsAndInspections\\BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI.Models\\BasicStandardsForRoundsAndInspectionsAPI.Models.csproj": {
+                "projectPath": "E:\\BasicStandardsForRoundsAndInspections\\BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI.Models\\BasicStandardsForRoundsAndInspectionsAPI.Models.csproj"
               },
-              "C:\\Users\\Dev010\\Documents\\BasicStandardsForRoundsAndInspections\\BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI.ViewModels\\BasicStandardsForRoundsAndInspectionsAPI.ViewModels.csproj": {
-                "projectPath": "C:\\Users\\Dev010\\Documents\\BasicStandardsForRoundsAndInspections\\BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI.ViewModels\\BasicStandardsForRoundsAndInspectionsAPI.ViewModels.csproj"
+              "E:\\BasicStandardsForRoundsAndInspections\\BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI.ViewModels\\BasicStandardsForRoundsAndInspectionsAPI.ViewModels.csproj": {
+                "projectPath": "E:\\BasicStandardsForRoundsAndInspections\\BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI.ViewModels\\BasicStandardsForRoundsAndInspectionsAPI.ViewModels.csproj"
               }
             }
           }
@@ -96,14 +96,14 @@
         }
       }
     },
-    "C:\\Users\\Dev010\\Documents\\BasicStandardsForRoundsAndInspections\\BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI.Models\\BasicStandardsForRoundsAndInspectionsAPI.Models.csproj": {
+    "E:\\BasicStandardsForRoundsAndInspections\\BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI.Models\\BasicStandardsForRoundsAndInspectionsAPI.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Dev010\\Documents\\BasicStandardsForRoundsAndInspections\\BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI.Models\\BasicStandardsForRoundsAndInspectionsAPI.Models.csproj",
+        "projectUniqueName": "E:\\BasicStandardsForRoundsAndInspections\\BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI.Models\\BasicStandardsForRoundsAndInspectionsAPI.Models.csproj",
         "projectName": "BasicStandardsForRoundsAndInspectionsAPI.Models",
-        "projectPath": "C:\\Users\\Dev010\\Documents\\BasicStandardsForRoundsAndInspections\\BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI.Models\\BasicStandardsForRoundsAndInspectionsAPI.Models.csproj",
+        "projectPath": "E:\\BasicStandardsForRoundsAndInspections\\BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI.Models\\BasicStandardsForRoundsAndInspectionsAPI.Models.csproj",
         "packagesPath": "C:\\Users\\Dev010\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Dev010\\Documents\\BasicStandardsForRoundsAndInspections\\BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI.Models\\obj\\",
+        "outputPath": "E:\\BasicStandardsForRoundsAndInspections\\BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI.Models\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -195,14 +195,14 @@
         }
       }
     },
-    "C:\\Users\\Dev010\\Documents\\BasicStandardsForRoundsAndInspections\\BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI.ViewModels\\BasicStandardsForRoundsAndInspectionsAPI.ViewModels.csproj": {
+    "E:\\BasicStandardsForRoundsAndInspections\\BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI.ViewModels\\BasicStandardsForRoundsAndInspectionsAPI.ViewModels.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Dev010\\Documents\\BasicStandardsForRoundsAndInspections\\BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI.ViewModels\\BasicStandardsForRoundsAndInspectionsAPI.ViewModels.csproj",
+        "projectUniqueName": "E:\\BasicStandardsForRoundsAndInspections\\BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI.ViewModels\\BasicStandardsForRoundsAndInspectionsAPI.ViewModels.csproj",
         "projectName": "BasicStandardsForRoundsAndInspectionsAPI.ViewModels",
-        "projectPath": "C:\\Users\\Dev010\\Documents\\BasicStandardsForRoundsAndInspections\\BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI.ViewModels\\BasicStandardsForRoundsAndInspectionsAPI.ViewModels.csproj",
+        "projectPath": "E:\\BasicStandardsForRoundsAndInspections\\BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI.ViewModels\\BasicStandardsForRoundsAndInspectionsAPI.ViewModels.csproj",
         "packagesPath": "C:\\Users\\Dev010\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Dev010\\Documents\\BasicStandardsForRoundsAndInspections\\BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI.ViewModels\\obj\\",
+        "outputPath": "E:\\BasicStandardsForRoundsAndInspections\\BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI.ViewModels\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -224,8 +224,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\Dev010\\Documents\\BasicStandardsForRoundsAndInspections\\BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI.Models\\BasicStandardsForRoundsAndInspectionsAPI.Models.csproj": {
-                "projectPath": "C:\\Users\\Dev010\\Documents\\BasicStandardsForRoundsAndInspections\\BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI.Models\\BasicStandardsForRoundsAndInspectionsAPI.Models.csproj"
+              "E:\\BasicStandardsForRoundsAndInspections\\BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI.Models\\BasicStandardsForRoundsAndInspectionsAPI.Models.csproj": {
+                "projectPath": "E:\\BasicStandardsForRoundsAndInspections\\BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI.Models\\BasicStandardsForRoundsAndInspectionsAPI.Models.csproj"
               }
             }
           }

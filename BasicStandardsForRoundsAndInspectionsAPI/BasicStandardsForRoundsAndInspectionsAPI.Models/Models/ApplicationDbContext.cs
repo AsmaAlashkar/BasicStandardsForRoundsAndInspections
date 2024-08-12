@@ -40,7 +40,6 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Models
                 entity.HasKey(e => new { e.UserId, e.LoginProvider, e.Name });
             });
 
-            // Configure the relationships and foreign keys
             modelBuilder.Entity<SubStandard>()
                 .HasOne(s => s.ResultType)
                 .WithMany(rt => rt.SubStandards)
@@ -50,7 +49,11 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Models
 
             modelBuilder.Entity<Result>(entity =>
             {
-                entity.HasKey(e => new { e.HospitalId, e.ReportDate, e.SubstandardId });
+                entity.HasKey(e => e.Id);
+
+                entity.HasIndex(e => new { e.HospitalId, e.ReportDate, e.SubstandardId })
+                  .IsUnique()
+                  .HasDatabaseName("UQ_Hospital_ReportDate_SubstandardId");
 
                 entity.Property(e => e.ReportDate).HasColumnType("datetime");
             });
