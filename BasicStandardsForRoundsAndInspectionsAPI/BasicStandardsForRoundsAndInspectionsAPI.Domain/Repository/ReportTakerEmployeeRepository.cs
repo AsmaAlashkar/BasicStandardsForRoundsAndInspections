@@ -19,6 +19,17 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Domain.Repository
             _context = context;
         }
 
+        public IndexreportTakerEmployeeDTO GetReportTakerNameById(int id)
+        {
+            return _context.Employees
+                .Where(h => h.Id == id)
+                .Select(h => new IndexreportTakerEmployeeDTO
+                {
+                    Name = h.Name
+                })
+                .FirstOrDefault() ?? new IndexreportTakerEmployeeDTO { Name = "Unknown" };
+        }
+
         public IEnumerable<IndexreportTakerEmployeeDTO> GetReportTakersNames()
         {
             return _context.Employees.Select(i => new IndexreportTakerEmployeeDTO

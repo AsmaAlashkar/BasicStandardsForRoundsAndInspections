@@ -20,5 +20,11 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Controllers
             var reportTakersNames = _reportTakerEmployeeRepository.GetReportTakersNames();
             return Ok(reportTakersNames);
         }
+        [HttpGet("GetReportTakerNameById/{id}")]
+        public IActionResult GetReportTakerNameById(int id)
+        {
+            var reportTakersName = _reportTakerEmployeeRepository.GetReportTakerNameById(id);
+            return Ok(reportTakersName);
+        }
     }
 }

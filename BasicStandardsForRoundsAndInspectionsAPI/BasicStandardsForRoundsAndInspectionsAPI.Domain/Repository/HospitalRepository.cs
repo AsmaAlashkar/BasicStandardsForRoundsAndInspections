@@ -1,5 +1,6 @@
 ﻿using BasicStandardsForRoundsAndInspectionsAPI.Domain.Interfaces;
 using BasicStandardsForRoundsAndInspectionsAPI.Models;
+using BasicStandardsForRoundsAndInspectionsAPI.Models.Models;
 using BasicStandardsForRoundsAndInspectionsAPI.ViewModels.ViewModels.HospitalDTO;
 using System;
 using System.Collections.Generic;
@@ -27,6 +28,18 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Domain.Repository
                 Name = i.Name,
                 NameAr=i.NameAr
             }).ToList();
+        }
+
+        public IndexHospitalDTO getHospitalNameById(int id)
+        {
+            return _context.Hospitals
+                .Where(h => h.Id == id)
+                .Select(h => new IndexHospitalDTO
+                {
+                    Name = h.Name,
+                    NameAr = h.NameAr
+                })
+                .FirstOrDefault() ?? new IndexHospitalDTO { Name = "Unknown", NameAr = "غير معروف" };
         }
     }
 }

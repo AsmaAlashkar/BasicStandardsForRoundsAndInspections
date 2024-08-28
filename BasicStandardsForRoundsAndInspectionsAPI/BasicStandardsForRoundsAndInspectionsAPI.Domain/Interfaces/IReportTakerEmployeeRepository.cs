@@ -10,5 +10,6 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Domain.Interfaces
     public interface IReportTakerEmployeeRepository
     {
         IEnumerable<IndexreportTakerEmployeeDTO> GetReportTakersNames();
+        IndexreportTakerEmployeeDTO GetReportTakerNameById(int id);
     }
 }

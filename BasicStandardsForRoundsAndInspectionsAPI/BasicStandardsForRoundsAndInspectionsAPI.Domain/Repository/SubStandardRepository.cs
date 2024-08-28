@@ -2,22 +2,20 @@
 using BasicStandardsForRoundsAndInspectionsAPI.Models;
 using BasicStandardsForRoundsAndInspectionsAPI.ViewModels.ViewModels.MainstandardDTO;
 using BasicStandardsForRoundsAndInspectionsAPI.ViewModels.ViewModels.SubStandardDTO;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+//using Microsoft.AspNetCore.Hosting;
 
 namespace BasicStandardsForRoundsAndInspectionsAPI.Domain.Repository
 {
     public class SubStandardRepository : ISubStandardRepository
     {
         private readonly ApplicationDbContext _context;
+        //IWebHostEnvironment _webHostingEnvironment;
 
-        public SubStandardRepository(ApplicationDbContext context)
+        public SubStandardRepository(ApplicationDbContext context)//, IWebHostEnvironment webHostingEnvironment
         {
             _context = context;
+            //_webHostingEnvironment = webHostingEnvironment;
+
         }
         public SubStandard CreateSubStandard(CreateSubStandardDTO createSubStandardDTO)
         {

@@ -2,6 +2,7 @@
 using BasicStandardsForRoundsAndInspectionsAPI.Domain.Interfaces;
 using BasicStandardsForRoundsAndInspectionsAPI.Models;
 using BasicStandardsForRoundsAndInspectionsAPI.ViewModels.ViewModels.MainstandardDTO;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +11,7 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class MainStandardController : ControllerBase
     {
         private readonly IMainStandardRepository _mainStandardRepository;
@@ -20,8 +22,8 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Controllers
             _mainStandardRepository = mainStandardRepository;
             _subStandardRepository = subStandardRepository;
         }
-        [HttpGet("GetMainStandards")]
 
+        [HttpGet("GetMainStandards")]
         public IActionResult GetMainStandards()
         {
             var MainStandards = _mainStandardRepository.GetMainStandards();
@@ -38,13 +40,17 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Controllers
             return Ok(mainStandard);
         }
 
+        [Authorize(Roles ="Admin")]
         [HttpPut]
         [Route("EditById/{id}")]
         public IActionResult EditById(int id, EditMainStandardDTO editedMainStandardDTO)
         {
             var editedMainStandard = _mainStandardRepository.EditById(id, editedMainStandardDTO);
+            Console.WriteLine("dddddddddddd : ", editedMainStandard);
             return Ok(editedMainStandard);
         }
+
+        [Authorize(Roles = "Admin")]
         [HttpPost("CreateMainStandard")]
 
         public int CreateMainStandard(CreateMainStandardDTO createMainStandardDTO)
@@ -52,6 +58,8 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Controllers
             var newMainStandardId = _mainStandardRepository.CreateMainStandard(createMainStandardDTO);
             return newMainStandardId;
         }
+
+        [Authorize(Roles = "Admin")]
         [HttpDelete("DeleteMainStandard/{id}")]
         public IActionResult DeleteMainStandard(int id)
         {

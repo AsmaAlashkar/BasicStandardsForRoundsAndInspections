@@ -20,5 +20,11 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Controllers
             var hospitals = _hospitalRepository.GetAllHospitalsNames();
             return Ok(hospitals);
         }
+        [HttpGet("getHospitalNameById/{id}")]
+        public IActionResult getHospitalNameById(int id)
+        {
+            var hospital = _hospitalRepository.getHospitalNameById(id);
+            return Ok(hospital);
+        }
     }
 }

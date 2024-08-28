@@ -10,5 +10,6 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Domain.Interfaces
     public interface IHospitalRepository
     {
         IEnumerable<IndexHospitalDTO> GetAllHospitalsNames();
+        IndexHospitalDTO getHospitalNameById(int id);
     }
 }
