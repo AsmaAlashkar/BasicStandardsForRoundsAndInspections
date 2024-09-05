@@ -40,9 +40,10 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Controllers
             return Ok(mainStandard);
         }
 
-        [Authorize(Roles ="Admin")]
         [HttpPut]
         [Route("EditById/{id}")]
+        [Authorize(Roles = "Admin")]
+
         public IActionResult EditById(int id, EditMainStandardDTO editedMainStandardDTO)
         {
             var editedMainStandard = _mainStandardRepository.EditById(id, editedMainStandardDTO);
@@ -50,8 +51,8 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Controllers
             return Ok(editedMainStandard);
         }
 
-        [Authorize(Roles = "Admin")]
         [HttpPost("CreateMainStandard")]
+        [Authorize(Roles = "Admin")]
 
         public int CreateMainStandard(CreateMainStandardDTO createMainStandardDTO)
         {
@@ -59,8 +60,9 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Controllers
             return newMainStandardId;
         }
 
-        [Authorize(Roles = "Admin")]
         [HttpDelete("DeleteMainStandard/{id}")]
+        [Authorize(Roles = "Admin")]
+
         public IActionResult DeleteMainStandard(int id)
         {
 

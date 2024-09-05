@@ -39,26 +39,29 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Controllers
             return Ok(subStandard);
         }
 
-        [Authorize(Roles = "Admin")]
         [HttpPost]
         [Route("CreateSubStandard")]
+        [Authorize(Roles = "Admin")]
+
         public IActionResult CreateSubStandard(CreateSubStandardDTO createSubStandardDTO)
         {
             var newSubStandard = _subStandardRepository.CreateSubStandard(createSubStandardDTO);
             return Ok(newSubStandard);
         }
 
-        [Authorize(Roles = "Admin")]
         [HttpPut]
         [Route("EditSubStandardById/{id}")]
+        [Authorize(Roles = "Admin")]
+
         public IActionResult EditSubStandardById(int id, EditSubStandardDTO editSubStandardDTO)
         {
             var editedSubStandard =_subStandardRepository.EditSubStandardById(id, editSubStandardDTO);
             return Ok(editedSubStandard);
         }
 
-        [Authorize(Roles = "Admin")]
         [HttpDelete("DeleteSubStandardById/{id}")]
+        [Authorize(Roles = "Admin")]
+
         public IActionResult DeleteSubStandardById(int id)
         {
             bool isDeleted = _subStandardRepository.DeleteSubStandardById(id);

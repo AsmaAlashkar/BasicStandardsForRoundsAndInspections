@@ -91,6 +91,7 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Domain.Repository
 
         public bool DeleteSubStandardById(int id)
         {
+            //check if it has result
             var subStandard = _context.SubStandards.Find(id);
             if (subStandard != null)
             {

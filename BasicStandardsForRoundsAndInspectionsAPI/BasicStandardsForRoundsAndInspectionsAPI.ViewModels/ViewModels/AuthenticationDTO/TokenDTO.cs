@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BasicStandardsForRoundsAndInspectionsAPI.ViewModels.ViewModels.AuthenticationDTO
 {
-    public record TokenDTO(string Token , DateTime Expiry);
+    public record TokenDTO(string Token , DateTime Expiry, string Role);
     
     
 }
