@@ -16,5 +16,7 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Domain.Interfaces
         IndexSubStandardDTO GetSubStandardById(int id);
         SubStandard EditSubStandardById(int id, EditSubStandardDTO editSubStandardDTO);
         bool DeleteSubStandardById(int id);
+        bool HasResultsForSubStandard(int subStandardId);
+        
     }
 }

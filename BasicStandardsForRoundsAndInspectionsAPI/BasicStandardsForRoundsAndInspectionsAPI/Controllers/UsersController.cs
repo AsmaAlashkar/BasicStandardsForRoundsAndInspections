@@ -1,12 +1,9 @@
 ﻿using BasicStandardsForRoundsAndInspectionsAPI.Models.Models;
 using BasicStandardsForRoundsAndInspectionsAPI.ViewModels.ViewModels.AuthenticationDTO;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
-using System;
 using System.IdentityModel.Tokens.Jwt;
-using System.Net.Mail;
 using System.Security.Claims;
 using System.Text;
 

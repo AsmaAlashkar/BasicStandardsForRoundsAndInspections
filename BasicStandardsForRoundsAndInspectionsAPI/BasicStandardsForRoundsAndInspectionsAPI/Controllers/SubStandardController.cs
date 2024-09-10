@@ -1,7 +1,6 @@
 ﻿using BasicStandardsForRoundsAndInspectionsAPI.Domain.Interfaces;
 using BasicStandardsForRoundsAndInspectionsAPI.ViewModels.ViewModels.SubStandardDTO;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 
@@ -74,5 +73,13 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Controllers
                 return NotFound(false);
             }
         }
+        [HttpGet("GetSubStandardHasResults/{id}")]
+        [Authorize(Roles = "Admin")]
+        public IActionResult GetSubStandardHasResults(int id)
+        {
+            var hasRelatedResults = _subStandardRepository.HasResultsForSubStandard(id);
+            return Ok(hasRelatedResults);
+        }
+
     }
 }

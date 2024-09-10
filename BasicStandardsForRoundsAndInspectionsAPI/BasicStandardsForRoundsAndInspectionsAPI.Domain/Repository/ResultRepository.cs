@@ -2,17 +2,9 @@
 using BasicStandardsForRoundsAndInspectionsAPI.Models;
 using BasicStandardsForRoundsAndInspectionsAPI.Models.Models;
 using BasicStandardsForRoundsAndInspectionsAPI.ViewModels.ViewModels.ResultDTO;
-using iText.Kernel.Pdf;
-using iText.Layout;
 
-using iText.Layout.Element;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace BasicStandardsForRoundsAndInspectionsAPI.Domain.Repository
 {

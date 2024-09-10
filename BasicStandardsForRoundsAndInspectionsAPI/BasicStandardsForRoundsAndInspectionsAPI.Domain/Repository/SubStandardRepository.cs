@@ -1,21 +1,52 @@
 ﻿using BasicStandardsForRoundsAndInspectionsAPI.Domain.Interfaces;
 using BasicStandardsForRoundsAndInspectionsAPI.Models;
-using BasicStandardsForRoundsAndInspectionsAPI.ViewModels.ViewModels.MainstandardDTO;
 using BasicStandardsForRoundsAndInspectionsAPI.ViewModels.ViewModels.SubStandardDTO;
-//using Microsoft.AspNetCore.Hosting;
 
 namespace BasicStandardsForRoundsAndInspectionsAPI.Domain.Repository
 {
     public class SubStandardRepository : ISubStandardRepository
     {
         private readonly ApplicationDbContext _context;
-        //IWebHostEnvironment _webHostingEnvironment;
 
-        public SubStandardRepository(ApplicationDbContext context)//, IWebHostEnvironment webHostingEnvironment
+        public SubStandardRepository(ApplicationDbContext context)
         {
             _context = context;
-            //_webHostingEnvironment = webHostingEnvironment;
+        }
 
+        public IEnumerable<SubStandard> GetAllSubStandards()
+        {
+            return _context.SubStandards.OrderBy(s => s.Id);
+        }
+
+        public IEnumerable<IndexSubStandardDTO> GetSubStandardsByMainStandardId(int mainStandardId)
+        {
+            return _context.SubStandards.Where(s => s.MainStandardId == mainStandardId).ToList().Select(item => new IndexSubStandardDTO
+            {
+                Id = item.Id,
+                Description = item.Description,
+                DescriptionAr = item.DescriptionAr,
+                Code = item.Code,
+                MainStandardId = item.MainStandardId,
+                ResultTypeId = item.ResultTypeId
+            });
+        }
+
+        public IndexSubStandardDTO GetSubStandardById(int id)
+        {
+            var subStandard = _context.SubStandards.Find(id);
+            if (subStandard != null)
+            {
+                var subStandardDTO = new IndexSubStandardDTO
+                {
+                    Description = subStandard.Description,
+                    DescriptionAr = subStandard.DescriptionAr,
+                    Code = subStandard.Code,
+                    MainStandardId = subStandard.MainStandardId,
+                    ResultTypeId = subStandard.ResultTypeId
+                };
+                return subStandardDTO;
+            }
+            return null;
         }
         public SubStandard CreateSubStandard(CreateSubStandardDTO createSubStandardDTO)
         {
@@ -37,41 +68,8 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Domain.Repository
             return null;
         }
 
-        public IndexSubStandardDTO GetSubStandardById(int id)
-        {
-            var subStandard = _context.SubStandards.Find(id);
-            if (subStandard != null)
-            {
-                var subStandardDTO = new IndexSubStandardDTO
-                {
-                    Description = subStandard.Description,
-                    DescriptionAr = subStandard.DescriptionAr,
-                    Code = subStandard.Code,
-                    MainStandardId = subStandard.MainStandardId,
-                    ResultTypeId = subStandard.ResultTypeId
-                };
-                return subStandardDTO;
-            }
-            return null;
-        }
 
-        public IEnumerable<SubStandard> GetAllSubStandards()
-        {
-            return _context.SubStandards.OrderBy(s=>s.Id);
-        }
 
-        public IEnumerable<IndexSubStandardDTO> GetSubStandardsByMainStandardId(int mainStandardId)
-        {
-            return _context.SubStandards.Where(s=>s.MainStandardId == mainStandardId).ToList().Select(item=> new IndexSubStandardDTO
-            {
-                Id = item.Id,
-                Description= item.Description,
-                DescriptionAr= item.DescriptionAr,
-                Code= item.Code,
-                MainStandardId = item.MainStandardId,
-                ResultTypeId = item.ResultTypeId
-            });   
-        }
 
         public SubStandard EditSubStandardById(int id, EditSubStandardDTO editSubStandardDTO)
         {
@@ -91,15 +89,25 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Domain.Repository
 
         public bool DeleteSubStandardById(int id)
         {
-            //check if it has result
             var subStandard = _context.SubStandards.Find(id);
-            if (subStandard != null)
+            if (subStandard == null)
             {
-                _context.Remove(subStandard);
-                _context.SaveChanges();
-                return true;
+                return false;
             }
-            return false;
+            var relatedResults = _context.Results.Where(r => r.SubstandardId == id);
+            if (relatedResults.Any())
+            {
+                _context.Results.RemoveRange(relatedResults);
+            }
+            _context.Remove(subStandard);
+            _context.SaveChanges();
+            return true;
+
         }
+        public bool HasResultsForSubStandard(int subStandardId)
+        {
+            return _context.Results.Any(r => r.SubstandardId == subStandardId);
+        }
+
     }
 }
