@@ -21,6 +21,8 @@ builder.Services.AddScoped<IResultRepository, ResultRepository>();
 builder.Services.AddScoped<IHospitalRepository, HospitalRepository>();
 builder.Services.AddScoped<IReportTakerEmployeeRepository, ReportTakerEmployeeRepository>();
 
+builder.Services.AddScoped<IEmailSender, EmailSender>();
+
 
 builder.Services.AddScoped<ISettingRepository, SettingRepositories>();
 
@@ -42,6 +44,7 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
 })
     .AddEntityFrameworkStores<ApplicationDbContext>()
     .AddDefaultTokenProviders();
+
 
 builder.Services.AddCors(options =>
 {
@@ -88,10 +91,25 @@ app.UseHttpsRedirection();
 app.UseRouting();
 app.UseCors("CorsPolicy");
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.MapControllers();
+
+    app.MapControllers(); 
+    //app.MapControllerRoute(
+    //    name: "forgetPassword",
+    //    pattern: "api/users/forget-password",
+    //    defaults: new { controller = "Users", action = "ForgetPassword" }
+    //);
+
+    //app.MapControllerRoute(
+    //    name: "resetPassword",
+    //    pattern: "api/users/reset-password",
+    //    defaults: new { controller = "Users", action = "ResetPassword" }
+    //);
+
+
+//app.MapControllers();
 
 app.Run();

@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 namespace BasicStandardsForRoundsAndInspectionsAPI.ViewModels.ViewModels.AuthenticationDTO
 {
     public record ResetPasswordDTO(
-        string UserName, 
-        string OldPassword, 
+        string Email, 
+        string Token, 
         string NewPassword, 
         string ConfirmPassword);
  

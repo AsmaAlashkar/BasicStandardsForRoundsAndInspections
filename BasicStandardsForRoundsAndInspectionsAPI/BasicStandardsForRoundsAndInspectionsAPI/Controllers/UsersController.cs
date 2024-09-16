@@ -6,6 +6,8 @@ using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using System.Net.Mail;
+using BasicStandardsForRoundsAndInspectionsAPI.Domain.Interfaces;
 
 namespace BasicStandardsForRoundsAndInspectionsAPI.Controllers
 {
@@ -15,33 +17,17 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Controllers
     {
         private readonly IConfiguration _configuration;
         private readonly UserManager<ApplicationUser> _userManager;
+        private readonly IEmailSender _emailSender;
 
-        public UsersController(IConfiguration configuration,
-            UserManager<ApplicationUser> userManager)
+        public UsersController(
+            IConfiguration configuration,
+            UserManager<ApplicationUser> userManager,
+            IEmailSender emailSender)
         {
             _configuration = configuration;
             _userManager = userManager;
+            _emailSender = emailSender;
         }
-        //[HttpPost]
-        //[Route("static-login")]
-        //public ActionResult<TokenDTO> StaticLogin(LoginDTO loginDTO)
-        //{
-        //    bool isAuthenticated = loginDTO.UserName == Constants.AppSettings.RoleAdmin
-        //        && loginDTO.Password == Constants.AppSettings.AdminPassword;
-        //    if (!isAuthenticated)
-        //    {
-        //        return Unauthorized();
-        //    }
-        //    //Generate Token
-        //    var userClaims = new List<Claim>
-        //    {
-        //        new(ClaimTypes.NameIdentifier, Guid.NewGuid().ToString()),
-        //        new(ClaimTypes.Name, loginDTO.UserName),
-        //        new(ClaimTypes.Role, Constants.AppSettings.RoleAdmin )
-        //    };
-        //    return GenerateToken(userClaims);
-
-        //}
 
         private ActionResult<TokenDTO> GenerateToken(IEnumerable<Claim> userClaims, string role)
         {
@@ -111,74 +97,99 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Controllers
             return NoContent();
         }
 
-
-        //[HttpPost("forget-password")]
-        //public async Task<ActionResult> ForgetPassword(ForgetPasswordDTO forgetPasswordDTO)
-        //{
-        //    // Step 1: Find the user by email
-        //    var user = await _userManager.FindByEmailAsync(forgetPasswordDTO.Email);
-        //    if (user == null)
-        //    {
-        //        return BadRequest("Email not found.");
-        //    }
-
-        //    // Step 2: Generate a password reset token
-        //    var token = await _userManager.GeneratePasswordResetTokenAsync(user);
-
-        //    // Step 3: Create a password reset link
-        //    var resetLink = Url.Action("ResetPassword", "Users", new { token, email = user.Email }, Request.Scheme);
-
-        //    // Step 4: Send the password reset link to the user's email
-        //    // You should replace the below lines with your actual email sending code
-        //    // using a proper mail service or SMTP server.
-
-        //    var emailMessage = new MailMessage();
-        //    emailMessage.To.Add(user.Email);
-        //    emailMessage.Subject = "Password Reset";
-        //    emailMessage.Body = $"Click the link to reset your password: {resetLink}";
-        //    emailMessage.IsBodyHtml = true;
-
-        //    using (var client = new SmtpClient("your.smtp.server"))
-        //    {
-        //        await client.SendMailAsync(emailMessage);
-        //    }
-
-        //    return Ok("Password reset link has been sent to your email.");
-        //}
-
-        [HttpPost]
-        [Route("reset-password")]
-        public async Task<ActionResult> ResetPassword(ResetPasswordDTO resetPasswordDTO)
+        [HttpPost("forget-password")]
+        public async Task<IActionResult> ForgetPassword([FromBody] ForgetPasswordDTO model)
         {
-            // Step 1: Check if the username exists
-            var user = await _userManager.FindByNameAsync(resetPasswordDTO.UserName);
+            var user = await _userManager.FindByEmailAsync(model.Email);
             if (user == null)
             {
-                return BadRequest("User not found.");
+                return BadRequest("User not found");
             }
 
-            // Step 2: Verify that the old password matches the stored password
-            bool isOldPasswordCorrect = await _userManager.CheckPasswordAsync(user, resetPasswordDTO.OldPassword);
-            if (!isOldPasswordCorrect)
-            {
-                return BadRequest("Old password is incorrect.");
-            }
+            var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+            var resetLink = Url.Action("ResetPassword", "Users", new { token, email = model.Email }, Request.Scheme);
 
-            // Step 3: Ensure that the new password and confirm password match
-            if (resetPasswordDTO.NewPassword != resetPasswordDTO.ConfirmPassword)
-            {
-                return BadRequest("New password and confirm password do not match.");
-            }
+            await _emailSender.SendEmailAsync(model.Email!, "Reset Password", $"Reset your password using this link: {resetLink!}");
 
-            // Step 4: Update the password
-            var result = await _userManager.ChangePasswordAsync(user, resetPasswordDTO.OldPassword, resetPasswordDTO.NewPassword);
-            if (!result.Succeeded)
-            {
-                return BadRequest(result.Errors);
-            }
-
-            return Ok("Password has been reset successfully.");
+            return Ok("Reset password email sent");
         }
 
+        [HttpPost("reset-password")]
+        public async Task<IActionResult> ResetPassword([FromBody] ResetPasswordDTO resetPassword)
+        {
+            var user = await _userManager.FindByEmailAsync(resetPassword.Email);
+            if (user == null)
+            {
+                return BadRequest("User not found");
+            }
+
+            var result = await _userManager.ResetPasswordAsync(user, resetPassword.Token, resetPassword.NewPassword);
+            if (result.Succeeded)
+            {
+                return Ok("Password has been reset successfully");
+            }
+
+            return BadRequest(result.Errors);
+        }
+
+        //    [HttpPost]
+        //    [Route("reset-password")]
+        //    public async Task<ActionResult> ResetPassword(ResetPasswordDTO resetPasswordDTO)
+        //    {
+        //        // Step 1: Check if the username exists
+        //        var user = await _userManager.FindByNameAsync(resetPasswordDTO.UserName);
+        //        if (user == null)
+        //        {
+        //            return BadRequest("User not found.");
+        //        }
+
+        //        // Step 3: Ensure that the new password and confirm password match
+        //        if (resetPasswordDTO.NewPassword != resetPasswordDTO.ConfirmPassword)
+        //        {
+        //            return BadRequest("New password and confirm password do not match.");
+        //        }
+
+        //        // Step 4: Update the password
+        //        var result = await _userManager.ResetPasswordAsync(user,resetPasswordDTO.Token,resetPasswordDTO.NewPassword);
+        //        if (!result.Succeeded)
+        //        {
+        //            return BadRequest(result.Errors);
+        //        }
+
+        //        return Ok("Password has been reset successfully.");
+        //    }
+
+
+        //    [HttpPost("forgot-password")]
+        //    public async Task<IActionResult> ForgotPassword([FromBody] ForgetPasswordDTO model)
+        //    {
+        //        if (!ModelState.IsValid)
+        //            return BadRequest("Invalid Request");
+
+        //        var user = await _userManager.FindByEmailAsync(model.Email);
+        //        if (user == null)
+        //            return BadRequest("Email not found");
+
+        //        var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+
+
+        //        var resetLink = $"{Request.Scheme}://{Request.Host}/api/Users/reset-password?token={token}&email={model.Email}";
+
+        //        //var resetLink = Url.Action("reset-password", "Users", new { token, email = model.Email }, Request.Scheme);
+        //        //Console.WriteLine($"Request.Scheme: {Request.Scheme}");
+
+        //        if (string.IsNullOrEmpty(resetLink))
+        //        {
+        //            return BadRequest("Failed to generate reset link.");
+        //        }
+        //        // Send Email
+        //        await _emailSender.SendEmailAsync(model.Email,
+        //            "Reset Password", $"Please reset your password by clicking here: {resetLink}");
+        //        if (string.IsNullOrEmpty(resetLink))
+        //        {
+        //            return BadRequest("Error generating reset link.");
+        //        }
+        //        return Ok("Password reset link has been sent to your email.");
+        //    }
     }
 }
