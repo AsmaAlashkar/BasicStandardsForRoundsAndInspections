@@ -169,6 +169,10 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "MimeKit": {
+              "target": "Package",
+              "version": "[4.7.1, )"
+            },
             "PDFsharp-MigraDoc": {
               "target": "Package",
               "version": "[6.1.1, )"

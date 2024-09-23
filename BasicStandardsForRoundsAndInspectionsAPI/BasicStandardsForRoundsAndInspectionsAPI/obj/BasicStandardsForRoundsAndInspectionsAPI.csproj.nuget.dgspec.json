@@ -61,6 +61,10 @@
               "target": "Package",
               "version": "[7.0.1, )"
             },
+            "MailKit": {
+              "target": "Package",
+              "version": "[4.7.1.1, )"
+            },
             "PDFsharp-MigraDoc": {
               "target": "Package",
               "version": "[6.1.1, )"
@@ -277,6 +281,10 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "MimeKit": {
+              "target": "Package",
+              "version": "[4.7.1, )"
+            },
             "PDFsharp-MigraDoc": {
               "target": "Package",
               "version": "[6.1.1, )"

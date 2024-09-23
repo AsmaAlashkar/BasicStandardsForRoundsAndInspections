@@ -10,6 +10,6 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.ViewModels.ViewModels.Authent
         string Email, 
         string Token, 
         string NewPassword, 
-        string ConfirmPassword);
- 
+        string ConfirmPassword
+    );
 }

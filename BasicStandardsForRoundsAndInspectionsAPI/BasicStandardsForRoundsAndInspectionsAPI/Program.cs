@@ -5,9 +5,7 @@ using BasicStandardsForRoundsAndInspectionsAPI.Models;
 using BasicStandardsForRoundsAndInspectionsAPI.Models.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.FileProviders;
 using Microsoft.IdentityModel.Tokens;
-using System.Security.Claims;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -23,15 +21,10 @@ builder.Services.AddScoped<IReportTakerEmployeeRepository, ReportTakerEmployeeRe
 
 builder.Services.AddScoped<IEmailSender, EmailSender>();
 
-
 builder.Services.AddScoped<ISettingRepository, SettingRepositories>();
-
-
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-
-
 
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
 {
@@ -44,7 +37,6 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
 })
     .AddEntityFrameworkStores<ApplicationDbContext>()
     .AddDefaultTokenProviders();
-
 
 builder.Services.AddCors(options =>
 {
@@ -91,25 +83,11 @@ app.UseHttpsRedirection();
 app.UseRouting();
 app.UseCors("CorsPolicy");
 
-//app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
 
 
     app.MapControllers(); 
-    //app.MapControllerRoute(
-    //    name: "forgetPassword",
-    //    pattern: "api/users/forget-password",
-    //    defaults: new { controller = "Users", action = "ForgetPassword" }
-    //);
 
-    //app.MapControllerRoute(
-    //    name: "resetPassword",
-    //    pattern: "api/users/reset-password",
-    //    defaults: new { controller = "Users", action = "ResetPassword" }
-    //);
-
-
-//app.MapControllers();
 
 app.Run();

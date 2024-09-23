@@ -1,12 +1,15 @@
-﻿using BasicStandardsForRoundsAndInspectionsAPI.Domain.Interfaces;
-using Microsoft.Extensions.Configuration;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Mail;
+using MailKit.Net.Smtp;
+using MimeKit;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using BasicStandardsForRoundsAndInspectionsAPI.Domain.Interfaces;
+using Microsoft.Extensions.Configuration;
+using BasicStandardsForRoundsAndInspectionsAPI.ViewModels.ViewModels.EmailDTO;
 
 namespace BasicStandardsForRoundsAndInspectionsAPI.Domain.Repository
 {
@@ -18,24 +21,30 @@ namespace BasicStandardsForRoundsAndInspectionsAPI.Domain.Repository
         {
             _config = config;
         }
+        
         public async Task SendEmailAsync(string email, string subject, string message)
         {
-            var smtpServer = _config["EmailSettings:SmtpServer"];
-            var smtpPort = int.Parse(_config["EmailSettings:Port"]!);
-            var smtpUser = _config["EmailSettings:Username"]!;
-            var smtpPass = _config["EmailSettings:Password"];
-            using (var client = new SmtpClient(smtpServer, smtpPort))
+            var smtpServer = _config["EmailConfiguration:SmtpServer"];
+            var smtpPort = int.Parse(_config["EmailConfiguration:Port"]!);
+            var from = _config["EmailConfiguration:From"];
+            string appSpecificPassword = "tkqz hjao zhxa bojm";//TODO: move to config
+
+            var content = new EmailMessage()
             {
-                client.Credentials = new NetworkCredential(smtpUser, smtpPass);
-                client.EnableSsl = true;
+                From = from,
+                To = email,
+                MessageText = message,
+                Subject = subject
+            };
 
-                var mailMessage = new MailMessage(smtpUser, email, subject, message);
-                mailMessage.IsBodyHtml = true;
+            using var client = new SmtpClient();
 
-                await client.SendMailAsync(mailMessage);
-            }
+            client.Connect(smtpServer, smtpPort, true);
+            client.Authenticate(from, appSpecificPassword);
+            client.Send(content.GetMessage());
+            client.Disconnect(true);
+
         }
-
 
     }
 }

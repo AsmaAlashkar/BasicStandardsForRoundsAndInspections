@@ -1,12 +1,121 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "E:\\BasicStandardsForRoundsAndInspections\\BasicStandardsForRoundsAndInspectionsAPI\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{CEEB7ED6-626F-4BF3-A595-4E825EE2F378}|BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI.csproj|e:\\basicstandardsforroundsandinspections\\basicstandardsforroundsandinspectionsapi\\basicstandardsforroundsandinspectionsapi\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CEEB7ED6-626F-4BF3-A595-4E825EE2F378}|BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI.csproj|solutionrelative:basicstandardsforroundsandinspectionsapi\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{69FAC7B6-2FCC-4958-986F-8515E2118B92}|BasicStandardsForRoundsAndInspectionsAPI.ViewModels\\BasicStandardsForRoundsAndInspectionsAPI.ViewModels.csproj|e:\\basicstandardsforroundsandinspections\\basicstandardsforroundsandinspectionsapi\\basicstandardsforroundsandinspectionsapi.viewmodels\\viewmodels\\authenticationdto\\resetpassworddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{69FAC7B6-2FCC-4958-986F-8515E2118B92}|BasicStandardsForRoundsAndInspectionsAPI.ViewModels\\BasicStandardsForRoundsAndInspectionsAPI.ViewModels.csproj|solutionrelative:basicstandardsforroundsandinspectionsapi.viewmodels\\viewmodels\\authenticationdto\\resetpassworddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{69FAC7B6-2FCC-4958-986F-8515E2118B92}|BasicStandardsForRoundsAndInspectionsAPI.ViewModels\\BasicStandardsForRoundsAndInspectionsAPI.ViewModels.csproj|e:\\basicstandardsforroundsandinspections\\basicstandardsforroundsandinspectionsapi\\basicstandardsforroundsandinspectionsapi.viewmodels\\viewmodels\\emaildto\\emailmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{69FAC7B6-2FCC-4958-986F-8515E2118B92}|BasicStandardsForRoundsAndInspectionsAPI.ViewModels\\BasicStandardsForRoundsAndInspectionsAPI.ViewModels.csproj|solutionrelative:basicstandardsforroundsandinspectionsapi.viewmodels\\viewmodels\\emaildto\\emailmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F30C785-F743-45DB-8B76-880041FC6302}|BasicStandardsForRoundsAndInspectionsAPI.Domain\\BasicStandardsForRoundsAndInspectionsAPI.Domain.csproj|e:\\basicstandardsforroundsandinspections\\basicstandardsforroundsandinspectionsapi\\basicstandardsforroundsandinspectionsapi.domain\\repository\\emailsender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2F30C785-F743-45DB-8B76-880041FC6302}|BasicStandardsForRoundsAndInspectionsAPI.Domain\\BasicStandardsForRoundsAndInspectionsAPI.Domain.csproj|solutionrelative:basicstandardsforroundsandinspectionsapi.domain\\repository\\emailsender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CEEB7ED6-626F-4BF3-A595-4E825EE2F378}|BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI.csproj|e:\\basicstandardsforroundsandinspections\\basicstandardsforroundsandinspectionsapi\\basicstandardsforroundsandinspectionsapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{CEEB7ED6-626F-4BF3-A595-4E825EE2F378}|BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI.csproj|solutionrelative:basicstandardsforroundsandinspectionsapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CEEB7ED6-626F-4BF3-A595-4E825EE2F378}|BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI.csproj|e:\\basicstandardsforroundsandinspections\\basicstandardsforroundsandinspectionsapi\\basicstandardsforroundsandinspectionsapi\\basicstandardsforroundsandinspectionsapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{CEEB7ED6-626F-4BF3-A595-4E825EE2F378}|BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI.csproj|solutionrelative:basicstandardsforroundsandinspectionsapi\\basicstandardsforroundsandinspectionsapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ResetPasswordDTO.cs",
+              "DocumentMoniker": "E:\\BasicStandardsForRoundsAndInspections\\BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI.ViewModels\\ViewModels\\AuthenticationDTO\\ResetPasswordDTO.cs",
+              "RelativeDocumentMoniker": "BasicStandardsForRoundsAndInspectionsAPI.ViewModels\\ViewModels\\AuthenticationDTO\\ResetPasswordDTO.cs",
+              "ToolTip": "E:\\BasicStandardsForRoundsAndInspections\\BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI.ViewModels\\ViewModels\\AuthenticationDTO\\ResetPasswordDTO.cs",
+              "RelativeToolTip": "BasicStandardsForRoundsAndInspectionsAPI.ViewModels\\ViewModels\\AuthenticationDTO\\ResetPasswordDTO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAGAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-23T10:50:58.525Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "BasicStandardsForRoundsAndInspectionsAPI.csproj",
+              "DocumentMoniker": "E:\\BasicStandardsForRoundsAndInspections\\BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI.csproj",
+              "RelativeDocumentMoniker": "BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI.csproj",
+              "ToolTip": "E:\\BasicStandardsForRoundsAndInspections\\BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI.csproj",
+              "RelativeToolTip": "BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI.csproj",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAswBMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-09-22T13:23:30.386Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "EmailMessage.cs",
+              "DocumentMoniker": "E:\\BasicStandardsForRoundsAndInspections\\BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI.ViewModels\\ViewModels\\EmailDTO\\EmailMessage.cs",
+              "RelativeDocumentMoniker": "BasicStandardsForRoundsAndInspectionsAPI.ViewModels\\ViewModels\\EmailDTO\\EmailMessage.cs",
+              "ToolTip": "E:\\BasicStandardsForRoundsAndInspections\\BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI.ViewModels\\ViewModels\\EmailDTO\\EmailMessage.cs",
+              "RelativeToolTip": "BasicStandardsForRoundsAndInspectionsAPI.ViewModels\\ViewModels\\EmailDTO\\EmailMessage.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAwwBUAAAAzAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-22T12:41:39.315Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UsersController.cs",
+              "DocumentMoniker": "E:\\BasicStandardsForRoundsAndInspections\\BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI\\Controllers\\UsersController.cs",
+              "RelativeDocumentMoniker": "BasicStandardsForRoundsAndInspectionsAPI\\Controllers\\UsersController.cs",
+              "ToolTip": "E:\\BasicStandardsForRoundsAndInspections\\BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI\\Controllers\\UsersController.cs",
+              "RelativeToolTip": "BasicStandardsForRoundsAndInspectionsAPI\\Controllers\\UsersController.cs",
+              "ViewState": "AQIAAEsAAAAAAAAAAAAuwG8AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-16T12:31:21.538Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "EmailSender.cs",
+              "DocumentMoniker": "E:\\BasicStandardsForRoundsAndInspections\\BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI.Domain\\Repository\\EmailSender.cs",
+              "RelativeDocumentMoniker": "BasicStandardsForRoundsAndInspectionsAPI.Domain\\Repository\\EmailSender.cs",
+              "ToolTip": "E:\\BasicStandardsForRoundsAndInspections\\BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI.Domain\\Repository\\EmailSender.cs",
+              "RelativeToolTip": "BasicStandardsForRoundsAndInspectionsAPI.Domain\\Repository\\EmailSender.cs",
+              "ViewState": "AQIAABMAAAAAAAAAAAA9wBgAAABFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-16T12:30:58.834Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "E:\\BasicStandardsForRoundsAndInspections\\BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI\\appsettings.json",
+              "RelativeDocumentMoniker": "BasicStandardsForRoundsAndInspectionsAPI\\appsettings.json",
+              "ToolTip": "E:\\BasicStandardsForRoundsAndInspections\\BasicStandardsForRoundsAndInspectionsAPI\\BasicStandardsForRoundsAndInspectionsAPI\\appsettings.json",
+              "RelativeToolTip": "BasicStandardsForRoundsAndInspectionsAPI\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAzAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-09-16T12:07:43.868Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }
